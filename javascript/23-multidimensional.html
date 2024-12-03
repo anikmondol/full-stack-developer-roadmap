@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let array = [
+            ["harry", 18, "male", "b.com"],
+            ["sunny", 21, "male", "bba"],
+            ["saran", 18, "female", "bsc"],
+            ["tom", 17, "male", "ba"],
+        ]
+
+        document.write("<table border='1px' cellspacing='0'>");
+        document.write(`<tr>
+                
+                <th>name</th>
+                <th>age</th>
+                <th>gender</th>
+                <th>crouse</th>
+                
+                </tr>`)
+        for (const elements of array) {
+            document.write("<tr>");
+            for (const element of elements) {
+                document.write(`<td> ${element} </td>`);
+            }
+            document.write("</tr>");
+
+            document.write("<br>");
+        }
+        document.write("</table>");
+
+    </script>
+</body>
+
+</html>
