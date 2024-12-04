@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sort and Reverse</title>
 </head>
+
 <body>
     <!-- <p id="arrayDisplay"></p>
     <button id="Sort" onclick="sortArray()">Sort</button>
@@ -12,16 +14,16 @@
 
     <script>
         // Initialize the array
-        let a = ["Sanjoy", "Aman", "Rehman", "Karan"];
-        let b = ["Rahul", "joy"];
+        // let a = ["Sanjoy", "Aman", "Rehman", "Karan"];
+        // let b = ["Rahul", "joy"];
         // let c = a.concat(b);
         // let b = a.concat("Rahul", "joy");
 
         // document.write(c);
 
-        let c = a.join(",");
+        // let c = a.join(",");
 
-        document.write(c);
+        // document.write(c);
 
 
         // array.push("anik");
@@ -48,6 +50,88 @@
 
         // Display the array initially
         // displayArray();
+
+
+        // let a = ["Sanjoy", "Aman", "Rehman", "Karan"];
+        // let a = 4;
+
+        // document.write(a + "<br><br>");
+
+        // if (Array.isArray(a)) {
+        //     document.write("this is an array");
+        // } else {
+        //     document.write("this not an array");
+        // }
+
+        // let b = a.slice(1,3);
+        // let b = a.slice(-2);
+
+        // document.write(b + "<br><br>");
+
+        // document.write(a);
+
+        // a.splice(1,2,"anik", "joy",1);
+
+        // document.write(a + "<br><br>");
+
+
+        // let a = ["sanjay", "aman", "rehman", "aman"];
+
+
+        // document.write(a.indexOf("aman", 2));
+        // document.write(a.lastIndexOf("aman" ));
+        // document.write(a.includes("aman"));
+
+        let a = [10, 18, 20, 15];
+
+        // document.write(a);
+        // let b = a.some(check);
+        // document.write(b);
+        // function check(age) {
+        //     return age > 15;
+        // }
+
+        // document.write(a);
+        // let b = a.every(check);
+        // document.write(b);
+        // function check(age) {
+        //     return age > 9;
+        // }
+
+        document.write(a + "<br><br>");
+
+        // let b = a.find(check);
+        // document.write(b);
+
+
+        // let b = a.findIndex(check);
+        // document.write(b);
+
+        // function check(num){
+        //     return num >= 20;
+        // }
+
+        // let b = a.filter(check);
+        // document.write(b);
+
+        // function check(num){
+        //     return num >= 18;
+        // }
+
+        // let b = a.toString();
+
+        // document.write(typeof(b))
+
+        // document.write(a.valueOf());
+        // document.write(a.fill("anik"));
+
+        a.forEach((element, index) => {
+            document.write(`${index}. ${element} <br>`);
+        });
+
+
+
     </script>
 </body>
+
 </html>
