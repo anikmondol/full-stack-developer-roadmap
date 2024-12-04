@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var a = {
+        //     fName: "anik",
+        //     lName: "mondal",
+        //     age : 25,
+        //     living: {
+        //         city : "dhaka",
+        //         county : "bangladesh"
+        //     }, 
+        //     email : "hello@gmail.com",
+        //     fullName : function(){
+        //         return `${this.fName} ${this.lName}`;
+        //     },
+        //     faMovies : ['hum', "dom", "paglo"],
+        //     salary: function(a){
+        //         return a;
+        //     }
+
+        // }
+
+
+        // document.write(a.living.county);
+        // document.write(a.fName);
+        // document.write(a.faMovies[1]);
+        // console.log(a);
+        // console.log(a.email);
+        // console.log(a.salary(4));
+        // document.write(a.fullName());
+
+        // let a = new Object();
+
+        // a.fName = "anik";
+        // a.lName = "Mondal";
+        // a['age'] = 24;
+
+        // document.write(a['age']);
+
+        let student = [
+            { name: "joy", age: 37 },
+            { name: "apu", age: 24 },
+            { name: "anik", age: 25 }
+        ];
+
+
+        for (const element of student) {
+            
+            document.write(element['name'] + " = " + element["age"] + ", <br>")
+            
+        }
+
+
+
+    </script>
+</body>
+
+</html>
