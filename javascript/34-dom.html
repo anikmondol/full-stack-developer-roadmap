@@ -119,16 +119,15 @@
             font-size: 14px;
         }
 
-        .anik{
+        .anik {
             font-style: italic;
             color: green !important;
         }
-
     </style>
 </head>
 
 <body>
-    <div id="header" class="abc" style="border: 1px solid red;" onClick="abc()">
+    <div id="header" class="abc apu" style="border: 1px solid red;">
         <h1 id="site-title">Yahoo Baba</h1>
     </div>
     <div id="navbar" class="navbar">
@@ -221,15 +220,66 @@
         // document.querySelector("#header").style.color = "black";
 
         // document.querySelector("#header").className = "";
-// document.querySelector("#header").add("anik")
+        // document.querySelector("#header").add("anik")
 
-let element = document.querySelector("#header").classList.add("anik");
-
-
- document.querySelector("#header").classList.remove("anik");
-
-
+        // let element = document.querySelector("#header").classList.add("anik");
+        //  document.querySelector("#header").classList.remove("anik");
         // console.log(element);
+
+        // document.querySelector("#header").onclick = function () {
+        //     // Get the current background color of #header
+        //     const header = document.querySelector("#header");
+
+        //     if (header.style.backgroundColor === "rgb(216, 30, 91)" || header.style.backgroundColor === "#d81e5b") {
+        //         header.style.backgroundColor = "black"; // Change to black
+        //     } else {
+        //         header.style.backgroundColor = "#d81e5b"; // Change back to original color
+        //     }
+        // };
+
+
+        // document.querySelector("#header").addEventListener("click", function(){
+        //     document.querySelector("#header").style.backgroundColor = "red";
+        // });
+
+        // document.querySelector("#header").addEventListener("mouseenter", function(){
+        //     document.querySelector("#header").style.color = "blue";
+        // });
+
+        // document.querySelector("#header").addEventListener("mouseleave", abc);
+
+        // function abc() {
+        //     this.style.backgroundColor = "red";
+        // }
+
+        // document.querySelector("#header").addEventListener("click",xyz)
+
+        // function xyz() {
+        //     document.querySelector("#header").removeEventListener("mouseleave", abc);
+        // }
+
+        // document.querySelector("#header").addEventListener("click", function(){
+        //     this.style.color = "blue";
+        // });
+
+        document.querySelector("#header").addEventListener("click",function(){
+            // this.classList.add("anik");
+            // this.classList.remove("apu");
+
+            // let a = this.classList.length;
+
+            // console.log(a);
+
+            // this.classList.toggle("anik");
+
+            // let a = this.classList.item(1);
+            let a = this.classList.contains("apuad");
+
+            console.log(a);
+            
+            
+
+        })
 
 
 

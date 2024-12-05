@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html id="main">
+<head>
+    <title>DOM Navigation</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#outer {
+    background-color: #f5e08b;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 60%;
+}
+
+#inner {
+    background-color: #f8bcbc;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-around;
+}
+
+#inner div {
+    background-color: #e6e6ff;
+    padding: 10px;
+    border: 1px solid #999;
+    width: 50px;
+    text-align: center;
+}
+
+#child-C {
+    background-color: #d1d1ff;
+}
+
+   </style>
+</head>
+<body>
+    <div id="outer">
+        <h2>Outer</h2>
+        <div id="inner">
+            <h2>Inner</h2>
+            <!-- <div>A</div> -->
+            <div>B</div>
+            <div id="child-C">C</div>
+            <div>D</div>
+            <div>E</div>
+        </div>
+    </div>
+
+
+    <script>
+        //  let a = document.getElementById("inner").children[1].style.backgroundColor = "red";
+        // let a = document.getElementById("inner").children[1].innerText = "anik";
+        // let a = document.getElementById("outer").children;
+        // let a = document.getElementById("inner").parentNode;
+        //  let a = document.getElementById("inner").parentElement;
+        // let a = document.getElementById("inner").parentNode.style.backgroundColor = "red";
+        // let a = document.getElementById("child-C").parentElement.style.backgroundColor = "red";
+        // let a = document.getElementById("inner").parentElement.style.backgroundColor = "red";
+        // let a = document.getElementById("outer").parentElement;
+        // let a = document.body.parentElement;
+
+        console.log(a);
+        
+
+    </script>
+
+</body>
+</html>
