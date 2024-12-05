@@ -1,56 +1,56 @@
-
 <!DOCTYPE html>
 <html id="main">
+
 <head>
     <title>DOM Navigation</title>
-   <style>
-    body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
 
-#outer {
-    background-color: #f5e08b;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
-    width: 60%;
-}
+        #outer {
+            background-color: #f5e08b;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            width: 60%;
+        }
 
-#inner {
-    background-color: #f8bcbc;
-    padding: 20px;
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: space-around;
-}
+        #inner {
+            background-color: #f8bcbc;
+            padding: 20px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-around;
+        }
 
-#inner div {
-    background-color: #e6e6ff;
-    padding: 10px;
-    border: 1px solid #999;
-    width: 50px;
-    text-align: center;
-}
+        #inner div {
+            background-color: #e6e6ff;
+            padding: 10px;
+            border: 1px solid #999;
+            width: 50px;
+            text-align: center;
+        }
 
-#child-C {
-    background-color: #d1d1ff;
-}
-
-   </style>
+        #child-C {
+            background-color: #d1d1ff;
+        }
+    </style>
 </head>
+
 <body>
     <div id="outer">
         <h2>Outer</h2>
         <div id="inner">
             <h2>Inner</h2>
-            <!-- <div>A</div> -->
+            <div>A</div>
             <div>B</div>
             <div id="child-C">C</div>
             <div>D</div>
@@ -71,10 +71,43 @@
         // let a = document.getElementById("outer").parentElement;
         // let a = document.body.parentElement;
 
+        // console.log(a);
+
+        // let a = document.querySelector("#inner").firstElementChild;
+        // document.querySelector("#inner").firstElementChild.style.color = "red";
+
+        // let a = document.querySelector("#outer").firstElementChild;
+        // document.querySelector("#outer").firstElementChild.style.color = "red";
+        // let a = document.querySelector("#outer").lastElementChild;
+        // document.querySelector("#outer").lastElementChild.style.backgroundColor = "red";
+
+        // let a = document.querySelector("#inner").lastElementChild;
+        // document.querySelector("#inner").lastElementChild.style.backgroundColor = "red";
+
+        // let a = document.querySelector("#inner").firstChild;
+        // document.querySelector("#inner").firstChild.style.backgroundColor = "red";
+
+        // let a = document.querySelector("#child-C").firstElementChild;
+        // a.style.color = "red";
+
+        // let a = document.querySelector("#child-C").nextElementSibling;
+
+        // document.querySelector("#child-C").previousElementSibling.style.backgroundColor = "red";
+
+        // let a = document.querySelector("#child-C").previousElementSibling;
+
+        document.querySelector("#child-C").nextElementSibling.style.backgroundColor = "red";
+
+        let a = document.querySelector("#child-C").nextElementSibling;
+
+
         console.log(a);
-        
+
+
+
 
     </script>
 
 </body>
+
 </html>

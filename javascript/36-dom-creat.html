@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: brown;">Yahoo Baba : DOM Create Methods</h1>
+
+    <div id="content">
+        <p>ada</p>
+        <h1>asdfsa</h1>
+    </div>
+
+    <script>
+
+        let newElement = document.createElement("p");
+        let newText = document.createTextNode("just text");
+        let newComment = document.createComment("just comment");
+
+        let content = document.querySelector("#content");
+
+        newElement.appendChild(newText);
+        newElement.appendChild(newComment);
+        content.insertBefore(newElement,content.childNodes[2]);
+
+              
+
+        // console.log(newElement);
+        // console.log(newText);
+        // console.log(newComment);
+        
+        
+        
+
+    </script>
+</body>
+</html>
