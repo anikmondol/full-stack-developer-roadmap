@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahoo Baba</title>
+    <style>
+        /* General Reset */
+        body,
+        h1,
+        h2,
+        p,
+        ul,
+        li,
+        a {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Section */
+        #header {
+            background-color: #d81e5b;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #site-title {
+            font-size: 24px;
+        }
+
+        /* Navbar */
+        #navbar {
+            background-color: #8e44ad;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .nav-link {
+            color: white;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Container */
+        #main-container {
+            display: flex;
+            margin: 20px;
+        }
+
+        /* Content Section */
+        #content-area {
+            flex: 3;
+            margin-right: 20px;
+        }
+
+        #sub-heading {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        #content-body {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        #content-image {
+            margin-right: 15px;
+            width: 150px;
+            height: auto;
+        }
+
+        #content-text {
+            line-height: 1.6;
+        }
+
+        #content-list {
+            margin-top: 10px;
+        }
+
+        .list-item {
+            margin-bottom: 5px;
+        }
+
+        /* Sidebar Section */
+        #sidebar {
+            flex: 1;
+        }
+
+        #sidebar-list {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .sidebar-item {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-link {
+            color: #333;
+        }
+
+        /* Footer Section */
+        #footer {
+            background-color: #d81e5b;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        #footer-text {
+            font-size: 14px;
+        }
+
+        .anik{
+            font-style: italic;
+            color: green !important;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="header" class="abc" style="border: 1px solid red;" onClick="abc()">
+        <h1 id="site-title">Yahoo Baba</h1>
+    </div>
+    <div id="navbar" class="navbar">
+        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link" href="#">Gallery</a>
+        <a class="nav-link" href="#">Contact Us</a>
+    </div>
+    <div id="main-container" class="container">
+        <div id="content-area" class="content">
+            <h2 id="sub-heading">Sub Heading</h2>
+            <div id="content-body" class="content-body">
+                <img id="content-image"
+                    src="https://media.istockphoto.com/id/2143731209/photo/lavender-flowers-close-up-on-sky-background.jpg?s=2048x2048&w=is&k=20&c=yUATsBAms0PxNMuSL2uzbzRwhlwuaJdQFIkwWkq12Z0="
+                    alt="Flowers">
+                <p id="content-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Incidunt, veniam eius architecto ullam
+                    cupiditate
+                    quam aspernatur quis facilis tempora vel! Aspernatur, consequatur, laborum, explicabo consequuntur
+                    minima
+                    beatae perferendis impedit accusantium ex animi odit quisquam sint pariatur minus amet ullam
+                    reprehenderit
+                    rerum inventore sed officiis voluptas? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Impedit voluptate enim laudantium aspernatur corrupti ipsam totam ab eos cupiditate, non sequi odit,
+                    voluptatibus itaque rerum suscipit libero excepturi at ex.
+                </p>
+            </div>
+            <ul id="content-list" class="content-list">
+                <li class="list-item">Lorem ipsum dolor sit amet.</li>
+                <li class="list-item">Modi nihil in animi necessitatibus.</li>
+                <li class="list-item">Consectetur adipisicing elit.</li>
+                <li class="list-item">Lorem ipsum dolor sit amet.</li>
+                <li class="list-item">Modi nihil in animi dolore natus.</li>
+            </ul>
+        </div>
+        <div id="sidebar" class="sidebar">
+            <ul id="sidebar-list" class="sidebar-list">
+                <li class="sidebar-item"><a class="sidebar-link" href="#">Home</a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#">About Us</a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#">Gallery</a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer" class="footer">
+        <p id="footer-text">yahoobaba©copyright 2018.</p>
+    </div>
+    <script>
+        // let element = document.body;
+        // let element = document.links[2];
+        // let element = document.images;
+        // let element = document.doctype;
+        // let element = document.URL;
+        // let element = document.domain;
+        // let element = document.baseURI;
+        // let element = document.getElementById("header");
+        // let element = document.getElementsByClassName("sidebar-item");
+        // let element = document.getElementsByTagName("li");
+        // console.log(element);
+
+        // let element = document.getElementById("header").innerText;
+        // let element = document.getElementById("content-body").innerText = "anik@gmail.com";
+        // let element = document.getElementById("header").innerHTML;
+        // let element = document.getElementById("header").getAttribute("id");
+        // let element = document.getElementById("header").getAttribute("class");
+        // let element = document.getElementById("header").getAttribute("style");
+        // let element = document.getElementById("header").getAttribute("onClick");
+        // let element = document.getElementById("header").getAttributeNode("style");
+        // let element = document.getElementById("header").getAttributeNode("style").value;
+        // let element = document.getElementById("header").attributes[1].value;
+        // let element = document.getElementById("header").attributes[1].name;
+
+        // let element = document.getElementById("header").innerText = "anik";
+        // let element = document.getElementById("header").innerHTML = "<p>good job</p>";
+
+        // document.getElementById("header").setAttribute("style", "border:10px solid green");
+        // document.getElementById("header").innerHTML = "<p>Good job</p>";
+
+        //  document.getElementById("header").removeAttribute("style");
+
+        //      document.querySelector("#header").innerText = "anik";
+        //    let element = document.querySelector("#header").getAttribute("class");
+
+        // let element = document.querySelectorAll(".list-item")[1].innerHTML;
+        //  let element = document.querySelectorAll("ul li")[2].innerText;
+
+
+        // // let element = document.querySelector("#header").style.background;
+        // let element = document.querySelector("#header").style.backgroundColor = "yellow";
+        // document.querySelector("#header").style.color = "black";
+
+        // document.querySelector("#header").className = "";
+// document.querySelector("#header").add("anik")
+
+let element = document.querySelector("#header").classList.add("anik");
+
+
+ document.querySelector("#header").classList.remove("anik");
+
+
+        // console.log(element);
+
+
+
+
+    </script>
+</body>
+
+</html>
