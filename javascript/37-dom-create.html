@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test" style="border: 1px solid black;">
+        <!-- <p><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus sequi qui rem id exercitationem! Sit atque corporis eveniet sed incidunt laboriosam iusto similique cumque adipisci veritatis commodi, labore ad alias.</span><span>Possimus at iste, est placeat, illo nisi, illum inventore vel pariatur quidem voluptatem. Nemo quidem nostrum quaerat qui tempore vitae odio quibusdam possimus consequuntur quasi. Molestiae quaerat repellat id neque!</span></p> -->
+
+        <!-- <ul id="list">
+            <li>Orange</li>
+            <li>Apple</li>
+            <li>Grapes</li>
+            <li>Banana</li>
+        </ul> -->
+
+        <!-- <ul id="list1">
+            <li class="da">Orange</li>
+            <li>Banana</li>
+            <li>Grapes</li>
+            <li>Apple</li>
+        </ul>
+
+
+        <ul id="list2">
+            <li>Carrot</li>
+            <li>Reddish</li>
+            <li>Grapes</li>
+
+        </ul> -->
+
+        <!-- <h4>Yahoo baba: javascript contains Method</h4>
+
+        <p id="abc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus dicta amet. Ipsa consectetur iure asperiores magni, ea pariatur itaque! Cumque sequi animi nihil sed vitae enim nam facere consectetur?</p>
+
+        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus dicta amet. Ipsa consectetur iure asperiores magni, ea pariatur itaque! Cumque sequi animi nihil sed vitae enim nam facere consectetur?</p> -->
+
+        <ul id="list1">
+            <li>Orange</li>
+            <li>Banana</li>
+            <li>Grapes</li>
+            <li>Apple</li>
+        </ul>
+
+
+        <ul id="list2">
+            <li>Carrot</li>
+            <li>Orange</li>
+            <li>Reddish</li>
+            <li>Grapes</li>
+
+        </ul>
+
+
+    </div>
+
+    <script>
+        // let target = document.querySelector("#test");
+        // let newElement = document.createElement("h2");
+        // let newText = document.createTextNode("just text");
+
+        // newElement.appendChild(newText);
+
+        // target.insertAdjacentElement("beforebegin", newElement);
+        // target.insertAdjacentElement("afterbegin", newElement);
+        // target.insertAdjacentElement("afterend", newElement);
+        // target.insertAdjacentElement("beforeend", newElement);
+
+
+        // let target = document.querySelector("#test");
+        // let newElement = "<h2>This is text</h2>";
+        // target.insertAdjacentHTML("afterbegin", newElement);
+        // target.insertAdjacentHTML("afterend", newElement);
+        // target.insertAdjacentHTML("beforebegin", newElement);
+        // target.insertAdjacentHTML("beforeend", newElement);
+
+
+
+        //  let target = document.querySelector("#test");
+        //   let newElement = "This is text";
+        //   target.insertAdjacentText("beforeend", newElement);
+
+        // let target = document.querySelector("#list");
+        // let oldElement = target.children[0];
+
+        // let newElement = document.createElement("li");
+        // let newText = document.createTextNode("Wow new text");
+
+
+        // newElement.appendChild(newText);
+
+
+        // console.log(oldElement);
+        // target.replaceChild(newElement, oldElement);
+        // target.removeChild(oldElement);
+
+
+
+        // let target = document.querySelector("#list1").children[0];
+        // let copyElement = target.cloneNode(true);
+
+
+        // document.querySelector("#list2").appendChild(copyElement);
+        // document.getElementsByTagName("body")[0].appendChild(copyElement);
+        // console.log(copyElement);
+
+        // let parentElement = document.querySelector("#test");
+        // let target = document.querySelector("#abc");
+
+        // if (parentElement.contains(target)) {
+        //     console.log(1);
+            
+        // } else {
+        //     console.log(0);
+        // }
+
+        //  let target = document.querySelector("#test");
+        
+
+        //  if (target.hasAttribute("class")) {
+        //     console.log(1);
+            
+        // } else {
+        //     console.log(0);
+        // }
+
+
+        // let target = document.querySelector("#test");
+        
+
+        //  if (target.hasChildNodes("class")) {
+        //     console.log(1);
+            
+        // } else {
+        //     console.log(0);
+        // }
+
+        let target1 = document.querySelector("#list1").firstElementChild;
+        // let target2 = document.querySelector("#list2").firstElementChild;
+        let target2 = document.querySelector("#list2").children[1];
+
+
+        if (target1.isEqualNode(target2)) {
+            console.log("target is equal");
+            
+        } else {
+            console.log("target is not equal");
+        }
+
+    </script>
+</body>
+
+</html>
