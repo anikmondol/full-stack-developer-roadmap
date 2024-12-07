@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello js</h1>
+    <!-- <button id="back">back</button> -->
+    <button id="forward">forward</button>
+    <script>
+        // document.querySelector("#click").addEventListener("click",function(){
+        //     location.href = "https://github.com/anikmondol";
+        // })
+
+        //  document.querySelector("#click").addEventListener("click",function(){
+        //     location.reload();
+        // })
+
+        // document.querySelector("#click").addEventListener("click",function(){
+        //     location.replace("https://github.com/anikmondol");
+        // })
+
+        // document.querySelector("#back").addEventListener("click", function () {
+        //     history.back();
+        // })
+
+        // document.querySelector("#forward").addEventListener("click", function () {
+        //     history.forward();
+        // })
+
+        document.querySelector("#forward").addEventListener("click", function () {
+            history.go(2);
+        })
+
+
+
+    </script>
+</body>
+
+</html>
