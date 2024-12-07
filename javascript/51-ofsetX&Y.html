@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" style="width: 300px; height: 150px; background-color: aquamarine; margin: 50px;">
+
+    </div>
+    <script>
+        // document.querySelector("#box").addEventListener("mousemove", (e) =>{
+        //     console.clear();
+        //     console.log(e.offsetY);
+        //     console.log(e.offsetX);
+
+        // })
+
+        document.querySelector("#box").addEventListener("click", (e) => {
+            console.clear();
+
+            // let ctrl = e.ctrlKey;
+            // if (ctrl) {
+            //     console.log("ctrlKey");
+
+            // } else {
+            //     console.log("No ctrlKey");
+            // }
+
+            // let ctrl = e.shiftKey;
+            // if (ctrl) {
+            //     console.log("shiftKey");
+
+            // } else {
+            //     console.log("No shiftKey");
+            // }
+
+            // let ctrl = e.altKey;
+            // if (ctrl) {
+            //     console.log("altKey");
+
+            // } else {
+            //     console.log("No altKey");
+            // }
+
+
+            // let ctrl = e.metaKey;
+            // if (ctrl) {
+            //     console.log("metaKey");
+
+            // } else {
+            //     console.log("No metaKey");
+            // }
+
+
+
+            let key;
+
+            switch (true) {
+                case e.metaKey:
+                    console.log("perse metaKey");
+                    break;
+                case e.ctrlKey:
+                    console.log("perse ctrlKey");
+                    break;
+                case e.altKey:
+                    console.log("perse altKey");
+                    break;
+                case e.shiftKey:
+                    console.log("perse shiftKey");
+                    break;
+                default:
+                    console.log("sorry no perse");
+                    
+                    break;
+            }
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>
