@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  let sum = (name,crouse,...args) =>{
+        //     let sum = 0;
+        //     for (const key in args) {
+        //         sum += args[key];
+        //     }
+
+        //     console.log(`hello '${name}' your crouse Name is '${crouse}' and you get ${sum}`);
+            
+
+        // };
+
+        // sum(`anik`,'bsc', ...[22, 78, 55, 47]);
+        // sum(`ritu`,`bba`, ...[ 52, 84]);
+
+        // let a = [22, 78, 55, 47];
+        // let b = [...[ 52, 84],'anik',...a];
+
+        // console.log(b);
+  
+        let obj1 = {
+            name : "anik",
+        }
+
+        let obj2 = {
+            age : 24,
+        }
+
+        let obj3 = {
+            ...obj1,
+            ...obj2,
+            crouse : "bsc",
+        }
+
+        console.log(obj3);
+        
+
+
+
+
+    </script>
+</body>
+
+</html>

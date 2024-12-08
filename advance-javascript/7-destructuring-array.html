@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let arr = ["anik", , "dhaka",['Male', 25000]];
+        // let [name = "anik", age = 24, city = "Dhaka", [gender, salary]] = arr;
+
+        // console.log(name); // "anik"
+        // console.log(age);  // 24
+        // console.log(city); // "dhaka"
+        // console.log(gender);
+        // console.log(salary);
+
+        // let arr = ["anik", 24, "dhaka"];
+        // let [name, ...other] = arr;
+
+        // console.log(other);
+
+        // function user([name = "anik", age = 24, city = "Dhaka"]) {
+        //     console.log(name); // "anik"
+        //     console.log(age);  // 24
+        //     console.log(city); // "dhaka"
+        // }
+
+        // user(["anik mondal", 24, "dhaka"]);
+
+        function user() {
+          return ["anik", 24, "dhaka"];
+        }
+
+        let [name, age, city] = user();
+        console.log(age);
+        
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class hello{
+
+            // user = "anik";
+            // message(){
+            //     console.log(`helle everyone ${this.user}`);
+                
+            // }
+
+            // sorry(){
+            //     console.log(`sorry everyone ${this.user}`);
+                
+            // }
+
+        // }
+
+        // let a = new hello();
+
+        // a.message();
+        
+        // a.sorry();
+
+
+        class Student{
+
+            constructor(name, age){
+                this.studentName = name;
+                this.studentAge = age;
+                console.log("constructor function");
+            }
+
+            hello(){
+                console.log(`hello user of ${this.studentName}. your age is ${this.studentAge}`);
+                
+            }
+
+            static staticMethod(){
+                console.log("hello static");
+                
+            }
+
+        }
+
+        let a = new Student("anik", 25);
+    //    a.name = "anik";
+       a.hello()
+
+       let b = new Student("ritu", 23);
+    //    a.name = "anik";
+       b.hello();
+
+       Student.staticMethod();
+
+    </script>
+</body>
+</html>
