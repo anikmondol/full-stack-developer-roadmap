@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function *generators() {
+
+
+            yield 55;
+            yield 65;
+            yield 75;
+            yield 85;
+
+
+
+            // yield* [11, 22, 33];
+            // let result = [yield, yield, yield];
+            // console.log(`result : ${result[2]}`);
+            	
+
+
+            // let nextNum = 300;
+            // while (true) {
+            //     yield(nextNum++);
+            // }
+
+        }
+
+
+        let g = generators();
+       console.log( g.next());
+       console.log([...g]);
+       console.log( g.return("ending now") );
+
+
+       
+    //    console.log( g.next());
+    //    console.log( g.next());
+    //    console.log( g.next());
+       
+        // g.next(22);
+        // g.next(32);
+        // g.next(42);
+
+
+
+        // console.log(g.next());
+        
+
+        // for (const element of g) {
+
+        //     if (element > 302) {
+        //         break;
+        //     }
+        //     console.log(element); 
+        // }
+        
+
+
+
+    </script>
+</body>
+
+</html>

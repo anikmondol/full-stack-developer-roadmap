@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let numbersIterator = (arr) =>{
+            let nextNum = 0;
+            return {
+                next(){
+                   if (nextNum < arr.length) {
+                    return {
+                        value : arr[nextNum++],
+                        done : false
+                   } 
+                   } else {
+                    return {
+                        value : undefined,
+                        done : true
+                   } 
+                   }
+                }
+            }
+        }
+
+        let numbers = [100, 200, 300];
+
+        let num = numbersIterator(numbers);
+
+        console.log(num.next());
+        console.log(num.next().value);
+        console.log(num.next());
+        console.log(num.next().value);
+        
+
+
+
+
+        // let str = "hello";
+
+        // for (const element in str) {
+        //     console.log(str[element]);
+            
+        // }
+
+        // let iter = str[Symbol.iterator]();
+        // let result =  iter.next();
+
+        // while (!result.done) {
+        //     console.log(result.value);
+        //     result =  iter.next();
+        // }
+
+
+
+
+
+
+        // console.log(iter.next().value);
+        // console.log(iter.next().value);
+
+        
+        
+    </script>
+</body>
+</html>
