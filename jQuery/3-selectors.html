@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test2 {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+
+
+    <div id="test2" style="background: rgb(160, 123, 197);">
+        <h4>Test Box 1</h4>
+        <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, placeat. Explicabo tenetur similique illum
+            enim
+            numquam, iure hic ipsum. Tempore optio numquam id autem illum labore ab facilis alias debitis?</p>
+    </div>
+
+    <ul>
+        <li>Orange</li>
+        <li  class="test">Banana</li>
+        <li>Grapes</li>
+        <li class="test">Grapes</li>
+        <li>Guava</li>
+    </ul>
+
+    <script>
+        $(document).ready(function () {
+
+            // $("ul li").css("border", "1px solid red");
+            // $("ul li:first").css("border", "1px solid red");
+            // $("ul li:last").css("border", "1px solid red");
+            // $("*").css("border", "1px solid red");
+            $(".test").css("border", "1px solid red");
+
+            $("#test2").css("border-radius", "10px");
+
+            $("#test2 h4").css("color", "red");
+
+
+
+        });
+    </script>
+</body>
+
+</html>

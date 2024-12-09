@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body-box {
+            display: flex;
+            gap: 15px;
+        }
+
+        #test1,
+        #test2 {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+
+
+    <div class="body-box">
+        <div id="test1" style="background: rgb(160, 123, 197);">
+            <h4>Test Box 1</h4>
+           <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, placeat. Explicabo tenetur similique illum
+            enim
+            numquam, iure hic ipsum. Tempore optio numquam id autem illum labore ab facilis alias debitis?</p>
+        </div>
+
+        <div id="test2">
+            <h4>Test Box 1</h4>
+           <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, placeat. Explicabo tenetur similique illum
+            enim
+            numquam, iure hic ipsum. Tempore optio numquam id autem illum labore ab facilis alias debitis?</p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // console.log($("#test1").html());
+            // console.log($("#test2").html());
+
+            let a = $("#test1").html();
+            let b = $("#test2").html();
+
+            console.log(a);
+            console.log(b);
+            
+            
+
+        });
+    </script>
+</body>
+
+</html>
