@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="demo">Here we load date.</h3>
+
+    <button id="button">click</button>
+
+    <script>
+        document.querySelector("#button").addEventListener("click", () =>{
+            let xhttp =  new XMLHttpRequest();
+
+
+            xhttp.onreadystatechange = function (){
+                
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    let target = document.querySelector("#demo");
+
+                    
+                    
+                }else if (this.readyState == 4 && this.status == 404) {
+                    // console.log(this.responseText);
+                    document.querySelector("#demo").innerText = "file not found";
+                    
+                }
+                
+            }
+
+
+            xhttp.open('GET', "https://jsonplaceholder.typicode.com/posts", true);
+
+            xhttp.send();
+
+        })
+    </script>
+</body>
+</html>

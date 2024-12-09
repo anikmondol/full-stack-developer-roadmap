@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let p1 = new Promise((resolve, reject) =>{
+        //     setTimeout(() => {
+        //         console.log("The first promise has resolved");
+        //         resolve(10);              
+        //     }, 1 * 1000);
+        // });
+        // let p2 = new Promise((resolve, reject) =>{
+        //     setTimeout(() => {
+        //         console.log("The second promise has Failed");
+        //         // resolve(20);
+        //         reject("Failed");              
+        //     }, 2 * 1000);
+        // });
+
+
+
+        let promiseCall = function (returnData, message) {
+           return function(resolve, reject) {
+                setTimeout(() => {
+                    console.log(`The ${message} promise has resolved`);
+                    resolve(returnData);
+                }, returnData * 100);
+            }
+        };
+
+        let p1 = new Promise(promiseCall(10, "first"));
+        let p2 = new Promise(promiseCall(20, "second"));
+        let p3 = new Promise(promiseCall(30, "third"));
+        let p4 = new Promise((resolve, reject) =>{
+            reject(`the 4th function rejects`);
+        });
+
+        let sum = 0;
+
+        Promise.all([p1, p2, p3, p4]).then((result) => {
+
+            for (const key in result) {
+                sum += result[key];
+            }
+
+            console.log(`Result: ${result}`);
+            console.log(`total of sum : ${sum}`);
+
+
+        }).catch((error) => {
+            console.log(`Error: ${error}`);
+
+        });
+
+    </script>
+</body>
+
+</html>

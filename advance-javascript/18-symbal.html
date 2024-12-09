@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let id1 = Symbol("hello");
+        // let id2 = Symbol("hello");
+
+        // console.log(id1 === id2);
+        // console.log(typeof id1);
+        // alert(id1.toString());
+        // alert(id1.description);
+        // console.log(id1.description);
+        
+        let age = Symbol("age");
+
+        let user = {
+            name : "anik",
+            // [age] : 24,
+            city : "dhaka" 
+        }
+
+        user[age.toString()] = 24;
+       
+        console.log(JSON.stringify(user));
+        
+        
+        // console.log(user[age]);
+
+        // for (const key in user) {
+        //     console.log(user[key]);
+            
+        // }
+        
+        
+    </script>
+</body>
+</html>
