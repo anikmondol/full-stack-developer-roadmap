@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test2 {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+
+
+    <div id="test2" style="background: rgb(160, 123, 197);">
+        <h4>Test Box 1</h4>
+        <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, placeat. Explicabo tenetur similique illum
+            enim
+            numquam, iure hic ipsum. Tempore optio numquam id autem illum labore ab facilis alias debitis?</p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+        $("#test2").click(function(){
+           $("#test2").css("background-color", "red"); 
+        });
+
+        $("#test2").dblclick(function(){
+           $("#test2 p").css("background-color", "yellow"); 
+        });
+
+        $("#test2").contextmenu(function(){
+           $("#test2 h4").css("background-color", "yellow"); 
+        });
+
+        $("#test2").mouseenter(function(){
+           $("#test2").css("background-color", "blue"); 
+        });
+
+        $("#test2").mouseleave(function(){
+           $("#test2").css("background-color", "green"); 
+        });
+
+
+        });
+    </script>
+</body>
+
+</html>

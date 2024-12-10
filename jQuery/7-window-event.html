@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test2 {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        #box {
+            width: 250px;
+            height: 200px;
+            border: 1px solid black;
+            overflow: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="box">
+        <h3>Test box</h3>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil itaque impedit quasi necessitatibus
+            laudantium ipsum fugiat minus quia tempore! Maiores a ex omnis ipsa, voluptate sint vitae quam quae, dolor
+            quod ratione voluptatum libero minima cum laudantium odio natus, vero illo. Culpa enim cum ullam earum
+            corporis beatae iste adipisci. Possimus tenetur temporibus eaque, aliquam vel excepturi cupiditate quis
+            pariatur nisi rem, fuga aliquid hic illum alias atque. Commodi omnis eius alias voluptates cumque modi nobis
+            saepe, rerum enim vel velit ab at ullam quae quo aspernatur officia nihil ratione. Laborum facilis,
+            explicabo fugit doloribus repellendus quod a reprehenderit maiores mollitia quos amet eveniet, enim
+            molestiae pariatur? Ipsa, temporibus officia. Animi, ipsum reiciendis. Consectetur voluptate repudiandae
+            saepe, aperiam eveniet nihil repellat. Labore beatae error ducimus eligendi, assumenda impedit iure aperiam
+            laboriosam, quae expedita unde, quam atque ut tenetur libero vel. Numquam, nam itaque! Minus laboriosam
+            veritatis, ut dolores ex velit.</p>
+    </div>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At tempora tempore quasi perferendis reiciendis possimus architecto, magni repudiandae saepe, quae ullam nam quibusdam consequatur aut velit vel excepturi, exercitationem tenetur. Tempora fuga dolore esse provident voluptatibus perferendis, dolores inventore eum modi maiores, repellendus a consectetur cum numquam, atque laboriosam ea vel? Eaque cum ea fugit iure quo dolor quibusdam sapiente laboriosam. Officiis ad quas eveniet, quidem ducimus nemo similique voluptas nostrum sed in sapiente eum iste ut quo aliquid libero autem temporibus corrupti dolores. Nisi odio officia, aliquam quos placeat aliquid atque in quo facilis vitae, inventore veniam libero error natus molestias iste ratione laudantium. Sequi modi dolorem harum commodi. Iste culpa modi sequi ab nostrum possimus sit, architecto, omnis recusandae asperiores itaque odio debitis dolorem eius magnam, voluptate magni similique. Quo provident reprehenderit adipisci ducimus architecto expedita earum saepe quisquam alias esse nisi, excepturi at maxime eaque reiciendis exercitationem repellendus eveniet nobis illo? Assumenda repellendus architecto, unde nulla pariatur reiciendis sequi facilis enim labore, quod sit doloremque blanditiis voluptate numquam totam ducimus? Quis, odit earum! Voluptates ducimus praesentium maiores? Libero vitae reiciendis excepturi perferendis minima quae asperiores sunt fugiat tenetur? Blanditiis reprehenderit aliquam quo sunt possimus fuga quidem sapiente!</p>
+
+    <script>
+        $(document).ready(function () {
+
+            $(window).scroll(function(){
+                console.log(window.innerHeight);
+                // console.log("i am scrolling");
+            });
+
+            $(window).resize(function(){
+                console.log(window.innerWidth);
+                // console.log("i am resize now");
+            });
+
+            $("#box").scroll(function(){
+                console.log(window.innerHeight);
+                // console.log("i am scrolling");
+            });
+
+        });
+    </script>
+</body>
+
+</html>

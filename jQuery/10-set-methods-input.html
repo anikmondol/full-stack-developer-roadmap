@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test2 {
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        .color-red{
+            color: red;
+        }
+
+    </style>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+
+    <h3>From Events</h3>
+    <form action="" id="sform">
+        <label for="">name</label>
+        <input type="email" id="sname"> <br><br>
+        <label for="">class</label>
+        <input type="text" id="sclass"> <br><br>
+        <label for="">country</label>
+        <button type="submit">submit</button>
+    </form>
+
+    <div id="box" style="border: 1px solid rebeccapurple; margin-top: 15px;">
+
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+           
+            $("#sname").val("anik");
+            $("#sclass").val("bsc");
+            $("#sclass, #sname").attr("class", "color-red");
+
+        });
+    </script>
+</body>
+
+</html>
