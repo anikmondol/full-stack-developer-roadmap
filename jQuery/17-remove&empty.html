@@ -28,39 +28,35 @@
 <body>
 
 
-    <div id="box" class="abc xyz">
+     <div id="box" class="abc xyz">
         <h3>Test box</h3>
         <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
     </div>
+
+    <button id="append">append</button>
+    <button id="prepend">prepend</button>
+
+    <button id="empty">empty</button>
     <button id="remove">remove</button>
 
     <script>
         $(document).ready(function () {
 
-        //   $("#box").on("click",function(){
-        //     $(this).css("background-color", "red");
-        //   });
+            $("#prepend").click(function(){
+                $("#box").prepend("<h4>added new prepend</h4>")
+            });
 
-        
-        // $("#box").on("mouseover mouseout",function(){
-        //     $(this).toggleClass("first", "class");
-        //   });
-           
+            $("#append").click(function(){
+                $("#box").append("<h4>added new append</h4>")
+            });
+    
+            $("#empty").click(function(){
+                $("#box").empty("<h4>added new prepend</h4>")
+            });
 
-        $("#box").on({
-            "click" : function(){
-                $(this).css("background-color", "red");
-            },
-            "mouseout" : function(){
-                $(this).css("background-color", "green");
-            },"mouseover" : function(){
-                $(this).css("background-color", "yellow");
-            },
-        });
-
-        $("#remove").click(function(){
-            $("#box").off("mouseover mouseout");
-        });
+            $("#remove").click(function(){
+                $("#box").remove()
+            });
 
         });
     </script>

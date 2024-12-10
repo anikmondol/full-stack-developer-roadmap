@@ -31,36 +31,23 @@
     <div id="box" class="abc xyz">
         <h3>Test box</h3>
         <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
-    </div>
-    <button id="remove">remove</button>
+    </div> 
+
+
+    <button id="append">append</button>
+    <button id="prepend">prepend</button>
 
     <script>
         $(document).ready(function () {
 
-        //   $("#box").on("click",function(){
-        //     $(this).css("background-color", "red");
-        //   });
+            $("#prepend").click(function(){
+                $("<h4>added new prependTo</h4>").prependTo("#box");
+            });
 
+            $("#append").click(function(){
+                $("<h4>added new appendTo</h4>").appendTo("#box");
+            });
         
-        // $("#box").on("mouseover mouseout",function(){
-        //     $(this).toggleClass("first", "class");
-        //   });
-           
-
-        $("#box").on({
-            "click" : function(){
-                $(this).css("background-color", "red");
-            },
-            "mouseout" : function(){
-                $(this).css("background-color", "green");
-            },"mouseover" : function(){
-                $(this).css("background-color", "yellow");
-            },
-        });
-
-        $("#remove").click(function(){
-            $("#box").off("mouseover mouseout");
-        });
 
         });
     </script>

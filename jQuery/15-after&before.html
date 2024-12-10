@@ -32,35 +32,22 @@
         <h3>Test box</h3>
         <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
     </div>
-    <button id="remove">remove</button>
+
+
+
+    <button id="after">after</button> 
+    <button id="before">before</button>
 
     <script>
         $(document).ready(function () {
 
-        //   $("#box").on("click",function(){
-        //     $(this).css("background-color", "red");
-        //   });
+            $("#before").click(function () {
+                $("#box").before("<h4>added new before</h4>")
+            });
 
-        
-        // $("#box").on("mouseover mouseout",function(){
-        //     $(this).toggleClass("first", "class");
-        //   });
-           
-
-        $("#box").on({
-            "click" : function(){
-                $(this).css("background-color", "red");
-            },
-            "mouseout" : function(){
-                $(this).css("background-color", "green");
-            },"mouseover" : function(){
-                $(this).css("background-color", "yellow");
-            },
-        });
-
-        $("#remove").click(function(){
-            $("#box").off("mouseover mouseout");
-        });
+            $("#after").click(function () {
+                $("#box").after("<h4>added new after</h4>")
+            });
 
         });
     </script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        #box {
+            border: 1px solid black;
+            padding: 0px 15px;
+            margin-bottom: 10px;
+        }
+
+        .first {
+            background-color: rgb(143, 130, 113);
+        }
+
+        .seconde {
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- <div id="box" class="abc xyz">
+        <h3>Test box</h3>
+        <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
+    </div> -->
+
+    <ol id="container">
+        <li>1-item</li>
+        <li>2-item</li>
+        <li>3-item</li>
+        <li>4-item</li>
+    </ol>
+
+    <button id="append">append</button>
+    <button id="prepend">prepend</button>
+
+    <script>
+        $(document).ready(function () {
+
+            // $("#prepend").click(function(){
+            //     $("#box").prepend("<h4>added new prepend</h4>")
+            // });
+
+            // $("#append").click(function(){
+            //     $("#box").append("<h4>added new append</h4>")
+            // });
+        
+
+            $("#prepend").click(function(){
+                $("#container").prepend("<li>added new prepend</li>")
+            });
+
+            $("#append").click(function(){
+                $("#container").append("<li>added new append</li>")
+            });
+
+        });
+    </script>
+</body>
+
+</html>

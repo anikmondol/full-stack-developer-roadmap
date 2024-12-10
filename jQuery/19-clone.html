@@ -31,36 +31,23 @@
     <div id="box" class="abc xyz">
         <h3>Test box</h3>
         <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
+    </div> 
+
+    <div id="box2">
+
     </div>
-    <button id="remove">remove</button>
+
+
+    <button id="clone">clone</button>
 
     <script>
         $(document).ready(function () {
 
-        //   $("#box").on("click",function(){
-        //     $(this).css("background-color", "red");
-        //   });
-
-        
-        // $("#box").on("mouseover mouseout",function(){
-        //     $(this).toggleClass("first", "class");
-        //   });
-           
-
-        $("#box").on({
-            "click" : function(){
-                $(this).css("background-color", "red");
-            },
-            "mouseout" : function(){
-                $(this).css("background-color", "green");
-            },"mouseover" : function(){
-                $(this).css("background-color", "yellow");
-            },
-        });
-
-        $("#remove").click(function(){
-            $("#box").off("mouseover mouseout");
-        });
+            $("#clone").click(function(){
+                $("#box h3").clone().prependTo("#box2");
+                $("#box p").clone().appendTo ("#box2");
+                $("#box2").css({"background-color" : "pink", "border" : "1px solid black", "margin-bottom": "10px", "padding": "0px 15px"});
+            })
 
         });
     </script>
