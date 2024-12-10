@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        #box {
+            border: 5px solid black;
+            padding: 0px 15px;
+            margin: 10px;
+        }
+
+        .first {
+            background-color: rgb(143, 130, 113);
+        }
+
+        .seconde {
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="box" class="abc xyz">
+       
+        <h3>Test box</h3>
+        <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
+    </div>
+
+    <button id="width">width</button>
+    <button id="height">height</button>
+    
+    <script>
+        $(document).ready(function () {
+
+            $("#width").click(function () {
+                $("#box").width("200");
+                console.clear();
+               console.log(`width : ${$("#box").width()}`);
+               console.log(`innerWidth : ${$("#box").innerWidth()}`);
+               console.log(`outerWidth : ${$("#box").outerWidth()}`);
+               console.log(`outerWidth(true) : ${$("#box").outerWidth(true)}`);               
+            });
+
+            $("#height").click(function () {
+                $("#box").height("200");
+                console.clear();
+               console.log(`height : ${$("#box").height()}`);
+               console.log(`innerHeight : ${$("#box").innerHeight()}`);
+               console.log(`outerHeight : ${$("#box").outerHeight()}`);
+               console.log(`outerHeight(true) : ${$("#box").outerHeight(true)}`);               
+            });
+
+        });
+    </script>
+</body>
+
+</html>
