@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 15px;
+            height: 15px;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+
+        .content {
+            width: 550px;
+            height: 200px;
+            background-color: bisque;
+            text-align: center;
+            margin: 0px 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+    </div>
+
+    <div class="content">
+
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores libero impedit consequatur. Deserunt,
+            velit nostrum. Doloremque ab veritatis laudantium dolores.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores libero impedit consequatur. Deserunt,
+            velit nostrum. Doloremque ab veritatis laudantium dolores.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores libero impedit consequatur. Deserunt,
+            velit nostrum. Doloremque ab veritatis laudantium dolores.</p>
+
+
+    </div>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).mousemove(function (event) {
+                let x = event.pageX;
+                let y = event.pageY;
+                $(".box").offset({ top: y, left: x });
+            });
+
+            $("p").each(function (i) {
+                $(this).on("click", { value: i }, function (event) {
+                    alert(event.data.value);
+                });
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

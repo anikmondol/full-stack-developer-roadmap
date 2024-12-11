@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 15px;
+            height: 15px;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+
+        .content {
+            width: 300px;
+            height: 250px;
+            background-color: bisque;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+    </div>
+
+    <div class="content">
+        <h2>some text</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam voluptate nostrum pariatur ullam dolorum
+            tempore fuga iure cumque porro sed!</p>
+        <button>button</button>
+    </div>
+
+
+    <div class="ans"></div>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).mousemove(function (event) {
+                let x = event.pageX;
+                let y = event.pageY;
+                $(".box").offset({ top: y, left: x });
+            });
+
+
+            $(".content").on("click", function (event) {
+                $(".ans").html(`target element: ${event.target.nodeName}`);
+            });
+
+
+
+        });
+    </script>
+</body>
+
+</html>
