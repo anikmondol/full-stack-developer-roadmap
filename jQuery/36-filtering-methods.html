@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        .box {
+            border: 2px solid lightblue;
+            background-color: #e6f7ff;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .box1 {
+            border: 2px solid lightblue;
+            background-color: #cfd5d7;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <p class="test">Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero voluptatibus ratione iusto odit tempore
+            aspernatur neque, pariatur atque deserunt voluptate ipsum aliquid recusandae? Culpa excepturi quia
+            doloremque aliquam illo.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero voluptatibus ratione iusto odit tempore
+            aspernatur neque, pariatur atque deserunt voluptate ipsum aliquid recusandae? Culpa excepturi quia
+            doloremque aliquam illo.</p>
+    </div>
+
+    <ul>
+        <li>item-1</li>
+        <li>item-2</li>
+        <li>item-3</li>
+        <li>item-4</li>
+    </ul>
+
+    <div class="box1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero voluptatibus ratione iusto odit tempore
+            aspernatur neque, pariatur atque deserunt voluptate ipsum aliquid recusandae? Culpa excepturi quia
+            doloremque aliquam illo.</p>
+        <p class="test">Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero voluptatibus ratione iusto odit tempore
+            aspernatur neque, pariatur atque deserunt voluptate ipsum aliquid recusandae? Culpa excepturi quia
+            doloremque aliquam illo.</p>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+
+        //    $("p").first().css("background", "red");
+        //    $("p").last().css("background", "red");
+        // $("p").eq(1).css("background", "red");        
+        // $("p").not(".test").css("background", "red");
+        // $("p").slice(0,2).css("background", "red");
+
+        $("p").filter(".test").css("background", "red");
+
+        });
+    </script>
+</body>
+
+</html>

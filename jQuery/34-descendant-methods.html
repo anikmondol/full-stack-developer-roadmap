@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .main-outer {
+            border: 2px solid purple;
+            background-color: #f1f1ff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .outer {
+            border: 2px solid orange;
+            background-color: #fff1d6;
+            padding: 20px;
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        .inner {
+            border: 2px solid pink;
+            background-color: #ffd6d6;
+            padding: 20px;
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .inn {
+            border: 2px solid pink;
+            background-color: #ffd6d6;
+            padding: 20px;
+            margin: 10px auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box {
+            border: 2px solid lightblue;
+            background-color: #e6f7ff;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="main-outer">
+        <p>Main Outer</p>
+        <div class="outer">
+            <p>Outer</p>
+            <ul class="inner" style="position: relative;">
+                <p class="child-c">inner</p>
+                <div class="inn">
+                    <div class="box">A</div>
+                    <div class="box">B</div>
+                    <div class="box child-c">C</div>
+                    <div class="box">D</div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            
+            // $(".inn").children('.child-c').css("background", "red");
+            $(".outer").find('.child-c').css("background", "red");
+            
+
+        });
+    </script>
+</body>
+
+</html>
