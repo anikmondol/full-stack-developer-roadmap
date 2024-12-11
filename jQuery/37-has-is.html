@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        .box {
+            border: 2px solid lightblue;
+            background-color: #e6f7ff;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .box1 {
+            border: 2px solid lightblue;
+            background-color: #cfd5d7;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <p class="test">Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero voluptatibus ratione iusto odit
+            tempore
+            aspernatur neque, pariatur atque deserunt voluptate ipsum aliquid recusandae? Culpa excepturi quia
+            doloremque aliquam illo.</p>
+        <p>Lorem ipsum dolor sit <span> amet consectetur adipisicing elit</span>. A vero voluptatibus ratione iusto odit
+            tempore
+            aspernatur neque, pariatur atque deserunt voluptate ipsum aliquid recusandae? Culpa excepturi quia
+            doloremque aliquam illo.</p>
+    </div>
+
+    <ul>
+        <li>item-1</li>
+        <li><span>item-2</span></li>
+        <li>item-3</li>
+        <li><b>item-4</b></li>
+    </ul>
+
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero voluptatibus ratione iusto odit tempore
+        aspernatur neque, pariatur <b>atque deserunt voluptate</b> ipsum aliquid recusandae? Culpa excepturi quia
+        doloremque aliquam illo.</p>
+    <p class="test">Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero voluptatibus ratione iusto odit
+        tempore
+        aspernatur neque, pariatur atque deserunt voluptate ipsum aliquid recusandae? Culpa excepturi quia
+        doloremque aliquam illo.</p>
+
+    <script>
+        $(document).ready(function () {
+
+            // $("p").has("span").css("background", "red");
+            // $("p").has("b").css("background", "gold");
+
+            // $("p").has("span, b").css("background", "red");
+
+            // $("ul li").has("b, span").css("color", "red");
+
+            $("p").click(function () {
+                if ($(this).parent().is("div")) {
+                 $(this).css("background", "red");
+                }
+            })
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

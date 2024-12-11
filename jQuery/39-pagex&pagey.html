@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            
+        }
+
+        .box div{
+            width: 15px;
+            height: 15px;
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+       <div></div>
+    </div>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+
+           $(document).mousemove(function(event){
+            // $(".box div").text(`X : ${event.pageX} Y : ${event.pageY}`)
+
+            let x = event.pageX;
+            let y = event.pageY;
+
+            $(".box div").offset({top:y,left:x});
+
+           });
+
+        });
+    </script>
+</body>
+
+</html>
