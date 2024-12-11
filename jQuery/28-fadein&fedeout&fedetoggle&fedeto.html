@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        #box {
+            border: 1px solid black;
+            padding: 0px 15px;
+            margin-bottom: 15px;
+            background-color: aquamarine;
+        }
+
+        .first {
+            background-color: rgb(143, 130, 113);
+        }
+
+        .seconde {
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="box" class="abcd xyz">
+
+        <h3>Test box</h3>
+        <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
+    </div>
+
+    <button id="fadeOut">fadeOut</button>
+    <button id="fadeIn">fadeIn</button>
+    <button id="fadeToggle">fadeToggle</button>
+    <button id="fadeTo">fadeTo</button>
+    <script>
+        $(document).ready(function () {
+
+            $("#fadeOut").click(function () {
+
+                //   $("#box").fadeOut("first");
+                // $("#box").fadeOut("slow");
+                // $("#box").fadeOut(1000);
+                $("#box").fadeOut(1000, function () {
+                    console.log("fadeOut button click");
+                });
+            });
+
+            $("#fadeIn").click(function () {
+
+                //   $("#box").fadeIn("first");
+                // $("#box").fadeIn("slow");
+                // $("#box").fadeIn(1000);
+                $("#box").fadeIn(1000, function () {
+                    console.log("hide button click");
+                });
+            });
+
+            $("#fadeToggle").click(function () {
+
+                //   $("#box").fadeToggle("first");
+                // $("#box").fadeToggle("slow");
+                // $("#box").fadeToggle(1000);
+                $("#box").fadeToggle(1000, function () {
+                    console.log("fadeToggle button click");
+                });
+            });
+
+            $("#fadeTo").click(function () {
+
+                //   $("#box").fadeTo("first");
+                // $("#box").fadeTo("slow");
+                // $("#box").fadeTo(1000);
+                $("#box").fadeTo(1000,0.5, function () {
+                    console.log("fadeTo button click");
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        #box {
+            border: 1px solid black;
+            padding: 0px 15px;
+            margin-bottom: 15px;
+            background-color: aquamarine;
+            width: 150px;
+            position: relative;
+        }
+
+        .first {
+            background-color: rgb(143, 130, 113);
+        }
+
+        .seconde {
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="box" class="abcd xyz">
+
+        <h3>Test box</h3>
+        <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
+    </div>
+
+    <button id="animate">animate</button>
+    <button id="stop">stop</button>
+    <script>
+        $(document).ready(function () {
+
+
+
+            $("#animate").click(function () {
+                $("#box").animate(
+                    {
+                        left: '150px'
+                    }, 3000, function () {
+                        console.log("animate done");
+
+                    });
+
+                    $("#box").animate(
+                    {
+                        left: '-0px'
+                    }, 3000, function () {
+                        console.log("animate done");
+
+                    });
+                    
+
+            });
+
+            $("#stop").click(function () {
+                $("#box").stop(true);
+
+            });
+
+            // $("#stop").click(function () {
+            //     $("#box").stop(true, true);
+
+            // });
+
+        });
+    </script>
+</body>
+
+</html>

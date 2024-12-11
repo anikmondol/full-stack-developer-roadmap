@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        div {
+            width: 250px;
+            height: 250px;
+            background-color: aquamarine;
+            margin-bottom: 10px;
+            position: fixed;
+            top: 80px;
+            left: 50px;
+        }
+
+        .first {
+            background-color: rgb(143, 130, 113);
+        }
+
+        .seconde {
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body style="width: 1000px;">
+    <p><span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quidem enim facere, doloremque quis quisquam
+            ad, fuga rerum minima consequatur debitis porro. Nostrum officiis dolores facilis ex, architecto fugit
+            sapiente?</span><span>Consectetur blanditiis eaque nulla sint, dolores doloremque. Officiis ipsum tempore
+            ullam, magnam error tenetur in totam magni iste a distinctio nihil necessitatibus exercitationem reiciendis
+            perspiciatis neque quo minima aut ducimus!</span><span>Sunt temporibus illum, alias dolorem ad nulla
+            expedita non deserunt eum. Dolorum tempore inventore fuga nulla dignissimos nam vitae voluptatem vel
+            aspernatur. Consequatur maiores distinctio nobis voluptatibus dolor laborum atque.</span><span>Mollitia
+            ullam accusantium, aperiam aliquam magnam voluptas voluptatum odit nesciunt id distinctio fugit perferendis
+            soluta architecto, ut dolorum, excepturi porro eos minus sunt in. In quia deleniti quisquam consectetur
+            maiores!</span><span>Harum architecto optio asperiores, rem sed ducimus at saepe, expedita obcaecati,
+            incidunt atque dolorum id aperiam. Consequuntur, sunt odio perferendis at eligendi sint aperiam! Hic
+            repudiandae facilis ex inventore doloribus.</span><span>Recusandae, ipsa. Sit reprehenderit provident
+            dolorem tempora. Minima eligendi, enim magni earum commodi ipsa fuga, non doloribus corporis quod repellat
+            nesciunt iste tempora recusandae ab laborum officiis? Modi, vitae porro.</span><span>Illo molestiae eum et.
+            Libero laborum, dignissimos ut, ex ad assumenda id cum pariatur, placeat quo fuga veritatis in ipsam aut
+            iure aspernatur architecto hic sed repudiandae illo harum itaque!</span><span>Culpa vel eius voluptatem sunt
+            ipsum? Eum atque voluptatem quas, quis error blanditiis reiciendis ab minus dolor nostrum vero perspiciatis
+            nemo unde officiis. Illo adipisci est laborum, error nisi quasi.</span><span>Corporis porro ratione nemo eum
+            libero ab cupiditate quod numquam odio! Sed corrupti fuga atque sequi perferendis error aspernatur, quod quo
+            soluta excepturi quos laborum corporis in delectus neque architecto!</span><span>Quibusdam soluta aliquam
+            earum consequatur unde et, esse magnam repellat obcaecati deserunt! Doloribus accusamus dolores, minima
+            aspernatur perferendis facilis incidunt eius, voluptate ab unde voluptas earum. Similique nesciunt quod
+            id!</span></p>
+
+    <!-- <div></div> -->
+
+    <button id="scrolltop">scrolltop</button>
+    <button id="scrollLeft">scrollLeft</button>
+
+    <script>
+        $(document).ready(function () {
+
+            $(window).scroll(function () {
+                console.clear();
+                // console.log($(window).scrollTop());
+                // console.log($(window).scrollLeft());
+                $("div").html("");
+                $("div").append(`scrollTop: ${$(window).scrollTop()}<br>`);
+                $("div").append(`scrollLeft: ${$(window).scrollLeft()}`);
+
+                
+            });
+
+
+
+            $("#scrolltop").click(function () {
+                $(window).scrollTop(100);
+
+            });
+
+            $("#scrollLeft").click(function () {
+
+                $(window).scrollLeft(100);
+            });
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>

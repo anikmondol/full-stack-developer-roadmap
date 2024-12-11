@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        #box {
+            border: 1px solid black;
+            padding: 0px 15px;
+            margin-bottom: 15px;
+        }
+
+        .first {
+            background-color: rgb(143, 130, 113);
+        }
+
+        .seconde {
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="box" class="abcd xyz">
+
+        <h3>Test box</h3>
+        <p> Lorem ipsum dolor sit minima cum laudantium odio </p>
+    </div>
+
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#hide").click(function () {
+
+                //   $("#box").hide("first");
+                // $("#box").hide("slow");
+                // $("#box").hide(1000);
+                $("#box").hide(1000, function () {
+                    console.log("hide button click");
+                });
+            });
+
+            $("#show").click(function () {
+
+                //   $("#box").show("first");
+                // $("#box").show("slow");
+                // $("#box").show(1000);
+                $("#box").show(1000, function () {
+                    console.log("hide button click");
+                });
+            });
+
+            $("#toggle").click(function () {
+
+                //   $("#box").toggle("first");
+                // $("#box").toggle("slow");
+                // $("#box").toggle(1000);
+                $("#box").toggle(1000, function () {
+                    console.log("toggle button click");
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
