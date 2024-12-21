@@ -12,20 +12,32 @@
         </div>
         <div class="form-group">
             <label>Class</label>
-            <select name="class">
+            <select name="sclass">
                 <option value="" selected disabled>Select Class</option>
-                <option value="1">BCA</option>
-                <option value="2">BSC</option>
-                <option value="3">B.TECH</option>
+                <?php
+
+                $sql = "SELECT * FROM studentclass";
+
+                $result = mysqli_query($conn, $sql) or die("query unsuccessful.");
+
+                 while ($row = mysqli_fetch_assoc($result)) {
+
+
+                ?>
+                <option value="<?= $row['cid']; ?>"><?= $row['cname']; ?></option>
+
+                <?php } ?>
+
             </select>
         </div>
         <div class="form-group">
             <label>Phone</label>
             <input type="text" name="sphone" />
         </div>
-        <input class="submit" type="submit" value="Save"  />
+        <input class="submit" type="submit" value="Save" name="Save" />
     </form>
 </div>
 </div>
 </body>
+
 </html>

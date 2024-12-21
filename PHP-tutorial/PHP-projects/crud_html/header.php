@@ -1,3 +1,9 @@
+<?php
+
+$conn = mysqli_connect("localhost", "root", "", "php_crud") or die("connection failed");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
