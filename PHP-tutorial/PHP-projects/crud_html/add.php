@@ -15,17 +15,14 @@
             <select name="sclass">
                 <option value="" selected disabled>Select Class</option>
                 <?php
-
                 $sql = "SELECT * FROM studentclass";
 
                 $result = mysqli_query($conn, $sql) or die("query unsuccessful.");
 
                  while ($row = mysqli_fetch_assoc($result)) {
 
-
                 ?>
                 <option value="<?= $row['cid']; ?>"><?= $row['cname']; ?></option>
-
                 <?php } ?>
 
             </select>
