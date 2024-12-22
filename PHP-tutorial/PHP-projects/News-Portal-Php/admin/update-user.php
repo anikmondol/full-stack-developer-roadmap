@@ -2,7 +2,7 @@
 include "header.php";
 
 if (isset($_REQUEST["submit"])) {
-    
+
     $user_id = mysqli_real_escape_string($conn, $_REQUEST["user_id"]);
     $f_name = mysqli_real_escape_string($conn, $_REQUEST["f_name"]);
     $l_name = mysqli_real_escape_string($conn, $_REQUEST["l_name"]);
@@ -12,18 +12,16 @@ if (isset($_REQUEST["submit"])) {
 
     $sql = "UPDATE `user` SET `first_name`='$f_name',`last_name`='$l_name',`username`='$username',`role`='$role' WHERE user_id = $user_id";
 
-    
+
     $result = mysqli_query($conn, $sql);
 
-   if ($result) {
+    if ($result) {
         header("Location: users.php");
     } else {
-        echo "Query unsuccessful: " . mysqli_error($conn);
+        echo "<p style='color:red;text-align:center;margin:10px 0'>Username already exists. Please choose another.</p>";
     }
 
     mysqli_close($conn);
-
-
 }
 
 
@@ -48,7 +46,7 @@ if (isset($_REQUEST["submit"])) {
                         while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                             <!-- Form Start -->
-                            <form action="" method="POST">
+                            <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="POST">
                                 <div class="form-group">
                                     <input type="hidden" name="user_id" class="form-control" value="<?= $row["user_id"] ?>" placeholder="">
                                 </div>

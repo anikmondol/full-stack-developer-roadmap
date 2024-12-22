@@ -15,13 +15,10 @@ if (isset($_REQUEST["delete"])) {
    if ($result) {
         header("Location: users.php");
     } else {
-        echo "Query unsuccessful: " . mysqli_error($conn);
+        echo "<p style='color:red;text-align:center;margin:10px 0'>Username already exists. Please choose another.</p>";
     }
 
     mysqli_close($conn);
-
-
-
 
 }
 
