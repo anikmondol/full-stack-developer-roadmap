@@ -25,10 +25,6 @@ if (isset($_REQUEST["save"])) {
 
     mysqli_close($conn);
 
-
-
-
-
 }
 
 ?>
@@ -61,7 +57,7 @@ if (isset($_REQUEST["save"])) {
                       <div class="form-group">
                           <label>User Role</label>
                           <select class="form-control" name="role" >
-                              <option value="0">Normal User</option>
+                              <option value="0">User</option>
                               <option value="1">Admin</option>
                           </select>
                       </div>

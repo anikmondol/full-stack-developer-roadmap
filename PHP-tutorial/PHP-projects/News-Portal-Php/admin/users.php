@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <?php
 
-                $sql = "SELECT * FROM user";
+                $sql = "SELECT * FROM user ORDER BY user_id asc";
                 $result = mysqli_query($conn, $sql) or die("query unsuccessful.");
 
                 if (mysqli_num_rows($result) > 0) {
@@ -37,7 +37,7 @@
                                     <td> <?= $row["first_name"] ?> <?= $row["last_name"] ?> </td>
                                     <td> <?= $row["username"] ?> </td>
                                     <td><?= $row["role"] == 1 ? "Admin" : "User" ?></td>
-                                    <td class='edit'><a href='update-user.php'><i class='fa fa-edit'></i></a></td>
+                                    <td class='edit'><a href='update-user.php?edit=<?= $row["user_id"] ?>'><i class='fa fa-edit'></i></a></td>
                                     <td class='delete'><a href='delete-user.php?delete=<?= $row["user_id"] ?>'><i class='fa fa-trash-o'></i></a></td>
                                 </tr>
                             <?php } ?>
