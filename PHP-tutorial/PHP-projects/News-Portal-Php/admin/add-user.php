@@ -1,4 +1,37 @@
-<?php include "header.php"; ?>
+<?php
+
+include "header.php"; 
+
+
+if (isset($_REQUEST["save"])) {
+    
+    $fname = mysqli_real_escape_string($conn, $_REQUEST["fname"]);
+    $lname = mysqli_real_escape_string($conn, $_REQUEST["lname"]);
+    $user = mysqli_real_escape_string($conn, $_REQUEST["user"]);
+    $password = mysqli_real_escape_string($conn, $_REQUEST["password"]);
+    $role = mysqli_real_escape_string($conn, $_REQUEST["role"]);
+
+
+    $sql = "INSERT INTO `user`(`first_name`, `last_name`, `username`, `password`, `role`) VALUES ('$fname','$lname','$user','$password','$role')";
+
+    
+    $result = mysqli_query($conn, $sql);
+
+   if ($result) {
+        header("Location: users.php");
+    } else {
+        echo "Query unsuccessful: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+
+
+
+
+
+}
+
+?>
   <div id="admin-content">
       <div class="container">
           <div class="row">

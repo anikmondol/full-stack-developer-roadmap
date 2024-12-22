@@ -1,4 +1,11 @@
-<?php include "header.php"; ?>
+<?php 
+
+include "header.php";
+
+
+
+
+?>
   <div id="admin-content">
       <div class="container">
          <div class="row">
@@ -7,7 +14,7 @@
              </div>
               <div class="col-md-offset-3 col-md-6">
                   <!-- Form -->
-                  <form  action="" method="POST" enctype="multipart/form-data">
+                  <form  action="<?= $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
                           <label for="post_title">Title</label>
                           <input type="text" name="post_title" class="form-control" autocomplete="off" required>
