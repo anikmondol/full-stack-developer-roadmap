@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <?php
 
-                $limit = 3;
+                $limit = 5;
 
                 if (isset($_REQUEST["page"])) {
                     $page = $_REQUEST["page"];
