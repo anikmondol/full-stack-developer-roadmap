@@ -22,7 +22,7 @@ include "header.php";
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Category</label>
-                        <select name="sclass">
+                        <select name="category">
                             <option value="" selected disabled>Select Class</option>
                             <?php
                             $sql = "SELECT * FROM category";

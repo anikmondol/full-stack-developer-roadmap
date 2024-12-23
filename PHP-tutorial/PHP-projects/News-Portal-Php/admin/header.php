@@ -42,7 +42,7 @@ $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("conne
                 <!-- /LOGO -->
                 <!-- LOGO-Out -->
                 <div class="col-md-offset-9  col-md-1">
-                    <a href="logout.php" class="admin-logout">logout</a>
+                    <a href="logout.php" class="admin-logout" style="font-size: 16px;"> <?= $_SESSION["username"] ?> logout</a>
                 </div>
                 <!-- /LOGO-Out -->
             </div>
