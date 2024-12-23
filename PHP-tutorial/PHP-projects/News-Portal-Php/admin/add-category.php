@@ -2,6 +2,10 @@
 
 include "header.php";
 
+if ($_SESSION["role"] == "0") {
+    header("Location: post.php");
+}
+
 
 if (isset($_REQUEST["save"])) {
     

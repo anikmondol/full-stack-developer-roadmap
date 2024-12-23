@@ -1,6 +1,10 @@
 <?php
 include "header.php";
 
+if ($_SESSION["role"] == "0") {
+    header("Location: post.php");
+}
+
 if (isset($_REQUEST["sumbit"])) {
 
     $cat_id = mysqli_real_escape_string($conn, $_REQUEST["cat_id"]);

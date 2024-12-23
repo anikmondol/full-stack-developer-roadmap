@@ -1,5 +1,9 @@
 <?php
 
+if ($_SESSION["role"] == "0") {
+    header("Location: post.php");
+}
+
 if (isset($_REQUEST["delete"])) {
     
     include("config.php");
