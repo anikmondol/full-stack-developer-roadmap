@@ -64,7 +64,7 @@
                                     <td><?= $row["post_date"] ?></td>
                                     <td><?= $row["username"] ?></td>
                                     <td class='edit'><a href='update-post.php?edit=<?= $row["post_id"] ?>'><i class='fa fa-edit'></i></a></td>
-                                    <td class='delete'><a href='delete-post.php?delete=<?= $row["post_id"] ?>'><i class='fa fa-trash-o'></i></a></td>
+                                    <td class='delete'><a href='delete-post.php?delete=<?= $row["post_id"] ?>&cat_id=<?= $row["category"] ?>'><i class='fa fa-trash-o'></i></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
