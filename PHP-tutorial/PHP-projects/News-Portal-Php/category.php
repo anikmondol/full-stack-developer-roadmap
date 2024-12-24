@@ -6,25 +6,24 @@
                 <!-- post-container -->
                 <div class="post-container">
 
-                <?php
-                
-                
-                $sql = "select * from category where category_id = {$cat_id}";
-
-                    $result1 = mysqli_query($conn, $sql) or die("query failed");
-
-                    $row1 = mysqli_fetch_assoc($result1);
-                
-                ?>
-
-                    <h2 class="page-heading"><?= $row1["category_name"];?></h2>
                     <?php
 
                     if (isset($_REQUEST["cid"])) {
                         $cat_id = $_REQUEST["cid"];
-
-                       
                     }
+
+
+                    $sql = "select * from category where category_id = {$cat_id}";
+
+                    $result1 = mysqli_query($conn, $sql) or die("query failed");
+
+                    $row1 = mysqli_fetch_assoc($result1);
+
+                    ?>
+
+                    <h2 class="page-heading"><?= $row1["category_name"]; ?></h2>
+                    <?php
+
 
 
 
@@ -47,7 +46,8 @@
             category.category_name, 
             user.username, 
             post.category, 
-            post.post_img 
+            post.post_img ,
+            post.author 
         FROM post
         INNER JOIN category ON post.category = category.category_id
         INNER JOIN user ON post.author = user.user_id 
@@ -75,11 +75,11 @@
                                             <div class="post-information">
                                                 <span>
                                                     <i class="fa fa-tags" aria-hidden="true"></i>
-                                                    <a href='category.php?cid=<?= $row['category']?>'><?= $row['category_name'] ?></a>
+                                                    <a href='category.php?cid=<?= $row['category'] ?>'><?= $row['category_name'] ?></a>
                                                 </span>
                                                 <span>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <a href='author.php'><?= $row['username'] ?></a>
+                                                    <a href='author.php?aid=<?= $row['author']?>'><?= $row['username'] ?></a>
                                                 </span>
                                                 <span>
                                                     <i class="fa fa-calendar" aria-hidden="true"></i>
