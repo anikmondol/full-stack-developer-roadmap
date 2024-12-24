@@ -12,7 +12,15 @@ if (isset($_REQUEST["submit"])) {
     
     } else {
 
+        $sql1 = "select * from post WHERE post_id = {$_REQUEST['post_id']};";
 
+        $ans = mysqli_query($conn, $sql1);
+    
+        $row = mysqli_fetch_assoc($ans);
+    
+    
+       unlink("upload/".$row['post_img']);
+    
 
         $errors = array();
 

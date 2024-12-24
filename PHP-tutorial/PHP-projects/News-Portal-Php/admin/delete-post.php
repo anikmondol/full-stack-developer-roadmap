@@ -13,6 +13,16 @@ if (isset($_REQUEST["delete"])) {
     $delete = $_REQUEST["delete"];
     $cat_id = $_REQUEST["cat_id"];
 
+    $sql1 = "select * from post WHERE post_id = {$delete};";
+
+    $ans = mysqli_query($conn, $sql1);
+
+    $row = mysqli_fetch_assoc($ans);
+
+
+   unlink("upload/".$row['post_img']);
+
+
     
     $sql = "DELETE FROM `post` WHERE post_id = {$delete};";
     $sql .= "UPDATE category SET post = post - 1 WHERE category_id = {$cat_id};";
