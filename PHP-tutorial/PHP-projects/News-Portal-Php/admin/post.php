@@ -73,9 +73,6 @@
                     <?php echo "<h4> No date found </h4>"; ?>
                 <?php }
 
-                ?>
-                <?php
-
                 $sql = "select * from post";
 
                 $result1 = mysqli_query($conn, $sql) or die("query failed");

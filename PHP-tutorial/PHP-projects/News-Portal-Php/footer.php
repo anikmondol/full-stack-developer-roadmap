@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <span>© Copyright 2019 News | Powered by <a href="http://www.yahoobaba.net/">Yahoo Baba</a></span>
+                <span>© Copyright <?= date("Y"); ?> News | Powered by <a href="http://anik558363.kesug.com/index.php">Anik Mondal</a></span>
             </div>
         </div>
     </div>
