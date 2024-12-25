@@ -2,7 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <span>© Copyright <?= date("Y"); ?> News | Powered by <a href="http://anik558363.kesug.com/index.php">Anik Mondal</a></span>
+                 <?php
+
+                    $sql = "SELECT * FROM `settings`";
+                    $result = mysqli_query($conn, $sql) or die("query unsuccessful.");
+
+                    if (mysqli_num_rows($result) > 0) {
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<span>' . htmlspecialchars($row["FooterDescription"]) . '</span>';
+
+                        }
+                    } ?>
             </div>
         </div>
     </div>

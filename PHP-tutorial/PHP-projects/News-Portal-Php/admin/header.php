@@ -20,6 +20,7 @@ $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("conne
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>ADMIN Panel</title>
+    <link rel="shortcut icon" href="../images/neptune.png" type="image/x-icon">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <!-- Font Awesome Icon -->
@@ -37,7 +38,25 @@ $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("conne
             <div class="row">
                 <!-- LOGO -->
                 <div class="col-md-2">
-                    <a href="post.php"><img class="logo" src="images/news.jpg"></a>
+
+                    <?php
+
+                    $sql = "SELECT * FROM `settings`";
+                    $result = mysqli_query($conn, $sql) or die("query unsuccessful.");
+
+                    if (mysqli_num_rows($result) > 0) {
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                     if ($row["logo"]) {
+                                    
+                                    echo '<a href="post.php"><img style="width: 50px;" src="images/' . htmlspecialchars($row['logo'], ENT_QUOTES, 'UTF-8') . '"></a>';
+                                } else {
+                                    echo '<a href="post.php"><img class="logo" src="images/news.jpg"></a>';
+                                }
+                     }
+                    } ?>
+
+
                 </div>
                 <!-- /LOGO -->
                 <!-- LOGO-Out -->
@@ -68,6 +87,9 @@ $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("conne
                             </li>
                             <li>
                                 <a href="users.php">Users</a>
+                            </li>
+                            <li>
+                                <a href="settings.php">Settings</a>
                             </li>
 
                         <?php } ?>

@@ -14,7 +14,7 @@ switch ($page) {
             $result = mysqli_query($conn, $sql) or die("query failed");
             $row = mysqli_fetch_assoc($result);
 
-            $page_title = "News Portal/single/".$row["title"];
+            $page_title = "News Portal/single/" . $row["title"];
         } else {
             $page_title = "No date founds";
         }
@@ -38,7 +38,7 @@ switch ($page) {
             $result = mysqli_query($conn, $sql) or die("query failed");
             $row = mysqli_fetch_assoc($result);
 
-            $page_title = "News Portal/single/".$row["username"];
+            $page_title = "News Portal/single/" . $row["username"];
         } else {
             $page_title = "No date founds";
         }
@@ -46,8 +46,7 @@ switch ($page) {
     case 'search.php':
         if (isset($_REQUEST["search"])) {
 
-            $page_title = "News Portal/search/".$_REQUEST["search"];
-
+            $page_title = "News Portal/search/" . $_REQUEST["search"];
         } else {
             $page_title = "No date founds";
         }
@@ -87,7 +86,22 @@ switch ($page) {
             <div class="row">
                 <!-- LOGO -->
                 <div class=" col-md-offset-4 col-md-4">
-                    <a href="index.php" id="logo"><img src="images/news.jpg"></a>
+                    <?php
+
+                    $sql = "SELECT * FROM `settings`";
+                    $result = mysqli_query($conn, $sql) or die("query unsuccessful.");
+
+                    if (mysqli_num_rows($result) > 0) {
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if ($row["logo"]) {
+
+                                echo '<a href="post.php"><img style="width: 120px;" src="admin/images/' . htmlspecialchars($row['logo'], ENT_QUOTES, 'UTF-8') . '"></a>';
+                            } else {
+                                echo '<a href="post.php"><img class="logo" src="admin/images/news.jpg"></a>';
+                            }
+                        }
+                    } ?>
                 </div>
                 <!-- /LOGO -->
             </div>
