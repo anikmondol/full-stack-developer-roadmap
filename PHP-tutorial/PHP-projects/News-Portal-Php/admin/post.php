@@ -21,20 +21,20 @@
 
                 $offset = ($page - 1) * $limit;
 
-                if($_SESSION["role"] == '1'){
+                if ($_SESSION["role"] == '1') {
                     $sql = "SELECT post.post_id, post.title, post.description,post.post_date,
                     category.category_name,user.username,post.category FROM post
                     LEFT JOIN category ON post.category = category.category_id
                     LEFT JOIN user ON post.author = user.user_id
                     ORDER BY post.post_id DESC LIMIT {$offset},{$limit}";
-                  }elseif($_SESSION["role"] == '0'){
+                } elseif ($_SESSION["role"] == '0') {
                     $sql = "SELECT post.post_id, post.title, post.description,post.post_date,
                     category.category_name,user.username,post.category FROM post
                     LEFT JOIN category ON post.category = category.category_id
                     LEFT JOIN user ON post.author = user.user_id
                     WHERE post.author = {$_SESSION['user_id']}
                     ORDER BY post.post_id DESC LIMIT {$offset},{$limit}";
-                  }
+                }
 
                 $result = mysqli_query($conn, $sql) or die("query unsuccessful.");
 
@@ -54,11 +54,14 @@
                         <tbody>
                             <?php
 
+                            $num = $offset + 1;
+
                             while ($row = mysqli_fetch_assoc($result)) {
 
                             ?>
                                 <tr>
-                                    <td class='id'><?= $row["post_id"] ?></td>
+                                    <td class='id'> <?= $num++; ?> </td>
+
                                     <td><?= $row["title"] ?></td>
                                     <td><?= $row["category"] ?></td>
                                     <td><?= $row["post_date"] ?></td>

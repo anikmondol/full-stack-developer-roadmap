@@ -3,6 +3,19 @@
 include "header.php";
 
 ?>
+
+<script>
+    // JavaScript to show the preview of new uploaded image
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('image-preview');
+
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+        }
+    }
+</script>
+
 <div id="admin-content">
     <div class="container">
         <div class="row">
@@ -28,7 +41,7 @@ include "header.php";
                             $sql = "SELECT * FROM category";
                             $result1 = mysqli_query($conn, $sql) or die("query unsuccessful.");
                             while ($row1 = mysqli_fetch_assoc($result1)) {
-                            
+
                             ?>
                                 <option value="<?= $row1["category_id"] ?>"> <?= $row1["category_name"] ?> </option>
                             <?php } ?>
@@ -37,7 +50,8 @@ include "header.php";
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Post image</label>
-                        <input type="file" name="fileToUpload" required>
+                        <input type="file" name="fileToUpload" id="new-image" onchange="previewImage(event)" required>
+                        <img id="image-preview" style="margin-top: 10px;" src="" height="150px">
                     </div>
                     <input type="submit" name="submit" class="btn btn-primary" value="Save" required />
                 </form>

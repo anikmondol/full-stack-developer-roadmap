@@ -45,11 +45,13 @@ if ($_SESSION["role"] == "0") {
                         <tbody>
                             <?php
 
+                            $num = $offset + 1;
+
                             while ($row = mysqli_fetch_assoc($result)) {
 
                             ?>
                                 <tr>
-                                    <td class='id'> <?= $row["user_id"] ?> </td>
+                                    <td class='id'> <?= $num++; ?> </td>
                                     <td> <?= $row["first_name"] ?> <?= $row["last_name"] ?> </td>
                                     <td> <?= $row["username"] ?> </td>
                                     <td><?= $row["role"] == 1 ? "Admin" : "User" ?></td>
@@ -79,21 +81,21 @@ if ($_SESSION["role"] == "0") {
                     echo "<ul class='pagination admin-pagination'>";
 
                     if ($page > 1) {
-                        echo '<li><a href="users.php?page='.($page - 1).'">Prev</a></li>';
+                        echo '<li><a href="users.php?page=' . ($page - 1) . '">Prev</a></li>';
                     }
 
-                   
+
                     for ($i = 1; $i <= $total_pages; $i++) {
                         if ($i == $page) {
-                           $active = "active";
+                            $active = "active";
                         } else {
                             $active = "";
                         }
-                        
-                        echo '<li class="'.$active.'"><a href="users.php?page=' . $i . '">' . $i . '</a></li>';
+
+                        echo '<li class="' . $active . '"><a href="users.php?page=' . $i . '">' . $i . '</a></li>';
                     }
                     if ($total_pages > $page) {
-                        echo '<li><a href="users.php?page='.($page + 1).'">Next</a></li>';
+                        echo '<li><a href="users.php?page=' . ($page + 1) . '">Next</a></li>';
                     }
                     echo "</ul>";
                 }

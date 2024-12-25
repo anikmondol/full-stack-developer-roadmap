@@ -6,6 +6,7 @@ $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("conne
 $page = basename($_SERVER["PHP_SELF"]);
 
 
+
 switch ($page) {
     case 'single.php':
         if (isset($_REQUEST["single_id"])) {
@@ -129,7 +130,7 @@ switch ($page) {
                         $active = "";
                     ?>
                         <ul class='menu'>
-                            <li><a class='{$active}' href='index.php'>Home</a></li>
+                            <li><a class='<?= $page == "index.php" ? "active" : ""; ?>' href='index.php'>Home</a></li>
                             <?php
                             while ($row = mysqli_fetch_assoc($result)) {
 
@@ -140,6 +141,7 @@ switch ($page) {
                                 echo "<li><a class='{$active}' href='category.php?cid={$row['category_id']}'>{$row['category_name']}</a></li>";
                             }
                             ?>
+                            <li><a href='admin/index.php'>Login</a></li>
                         </ul>
                     <?php } ?>
                 </div>

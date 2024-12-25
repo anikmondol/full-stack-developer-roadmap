@@ -43,12 +43,12 @@ if ($_SESSION["role"] == "0") {
                         </thead>
                         <tbody>
                             <?php
-
+                            $num = $offset + 1;
                             while ($row = mysqli_fetch_assoc($result)) {
 
                             ?>
                                 <tr>
-                                    <td class='id'><?= $row["category_id"]  ?></td>
+                                    <td class='id'> <?= $num++; ?> </td>
                                     <td><?= $row["category_name"]  ?></td>
                                     <td><?= $row["post"]  ?></td>
                                     <td class='edit'><a href='update-category.php?edit=<?= $row["category_id"] ?>'><i class='fa fa-edit'></i></a></td>

@@ -28,34 +28,34 @@
 
                         while ($row = mysqli_fetch_assoc($result)) {
 
-                        ?>
+                    ?>
                             <div class="post-content">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <a class="post-img" href='single.php?single_id=<?= $row['post_id']?>'><img src="admin/upload/<?= $row['post_img'] ?>" alt="<?= $row["title"] ?>" /></a>
+                                        <a class="post-img" href='single.php?single_id=<?= $row['post_id'] ?>'><img src="admin/upload/<?= $row['post_img'] ?>" alt="<?= $row["title"] ?>" /></a>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="inner-content clearfix">
-                                            <h3><a href='single.php?single_id=<?= $row['post_id']?>'><?= $row['title']?></a></h3>
+                                            <h3><a href='single.php?single_id=<?= $row['post_id'] ?>'><?= $row['title'] ?></a></h3>
                                             <div class="post-information">
                                                 <span>
                                                     <i class="fa fa-tags" aria-hidden="true"></i>
-                                                    <a href='category.php?cid=<?= $row['category']?>'><?= $row['category_name']?></a>
+                                                    <a href='category.php?cid=<?= $row['category'] ?>'><?= $row['category_name'] ?></a>
                                                 </span>
                                                 <span>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <a href='author.php?aid=<?= $row['author']?>'><?= $row['username']?></a>
+                                                    <a href='author.php?aid=<?= $row['author'] ?>'><?= $row['username'] ?></a>
                                                 </span>
                                                 <span>
                                                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    <?= $row['post_date']?>
+                                                    <?= $row['post_date'] ?>
                                                 </span>
                                             </div>
                                             <p class="description">
-                                            <?= substr($row['description'], 0, 130) . "..." ?>
+                                                <?= substr($row['description'], 0, 130) . "..." ?>
 
                                             </p>
-                                            <a class='read-more pull-right' href='single.php?single_id=<?= $row['post_id']?>'>read more</a>
+                                            <a class='read-more pull-right' href='single.php?single_id=<?= $row['post_id'] ?>'>read more</a>
                                         </div>
                                     </div>
                                 </div>

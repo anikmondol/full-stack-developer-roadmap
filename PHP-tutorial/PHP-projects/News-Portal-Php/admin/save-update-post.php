@@ -71,6 +71,12 @@ if (isset($_REQUEST["submit"])) {
 
     $sql = "UPDATE `post` SET `title`='$title',`description`='$description',`category`='$category',`post_date`='$date',`author`='$author',`post_img`='$new_name' WHERE post_id = $post_id;";
 
+    if ($_REQUEST['old_category'] != $category) {
+        $sql .= "UPDATE category SET post = post - 1 WHERE category_id = {$_REQUEST['old_category']};";
+        $sql .= "UPDATE category SET post = post + 1 WHERE category_id = {$category}";
+    }
+  
+
     if (mysqli_multi_query($conn, $sql)) {
         header("location: post.php");
     } else {

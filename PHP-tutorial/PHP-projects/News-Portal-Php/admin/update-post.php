@@ -1,4 +1,26 @@
-<?php include "header.php"; ?>
+<?php include "header.php";
+
+if ($_SESSION['role'] == 0) {
+
+    $id = $_REQUEST["edit"];
+
+    $sql2 = "SELECT author from post where post_id = $id";
+
+    $result2 = mysqli_query($conn, $sql2) or die("query unsuccessful.");
+
+    $row2 = mysqli_fetch_assoc($result2);
+
+
+    if ($row2['author'] != $_SESSION["user_id"]) {
+        header("location: post.php");
+    }
+
+
+}
+
+
+
+?>
 
 <script>
     // JavaScript to show the preview of new uploaded image
@@ -58,6 +80,7 @@
                                         <option value="3" <?php echo $row['category'] == 3 ? 'selected' : ''; ?>>Business</option>
                                         <option value="4" <?php echo $row['category'] == 4 ? 'selected' : ''; ?>>Politics</option>
                                     </select>
+                                    <input type="hidden" name="old_category" value="<?= $row['category'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Post image</label>

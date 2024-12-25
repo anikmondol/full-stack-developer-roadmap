@@ -9,6 +9,9 @@ if (!isset($_SESSION["username"])) {
 $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("connection failed");
 
 
+$page = basename($_SERVER["PHP_SELF"]);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +78,7 @@ $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("conne
                 <div class="col-md-12">
                     <ul class="admin-menu">
                         <li>
-                            <a href="post.php">Post</a>
+                            <a class='<?= $page == "post.php" ? "bg-info" : ""; ?>' href="post.php">Post</a>
                         </li>
 
                         <?php
@@ -83,13 +86,13 @@ $conn = mysqli_connect("localhost", "root", "", "news_portal_php") or die("conne
                         if ($_SESSION["role"] == "1") {
                         ?>
                             <li>
-                                <a href="category.php">Category</a>
+                                <a class='<?= $page == "category.php" ? "bg-info" : ""; ?>' href="category.php">Category</a>
                             </li>
                             <li>
-                                <a href="users.php">Users</a>
+                                <a class='<?= $page == "users.php" ? "bg-info" : ""; ?>' href="users.php">Users</a>
                             </li>
                             <li>
-                                <a href="settings.php">Settings</a>
+                                <a class='<?= $page == "settings.php" ? "bg-info" : ""; ?>' href="settings.php">Settings</a>
                             </li>
 
                         <?php } ?>
