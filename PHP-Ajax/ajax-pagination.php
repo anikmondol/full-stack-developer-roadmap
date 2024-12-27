@@ -51,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
 
     $output .= '<div id="pagination">';
     for ($i = 1; $i <= $total_pages; $i++) {
-        $active_class = ($i == $page_no) ? 'active' : ''; 
+        $active_class = ($i == $page_no) ? 'active' : '';
         $output .= "<a href='' id='{$i}' class='{$active_class}'>{$i}</a>";
     }
 
