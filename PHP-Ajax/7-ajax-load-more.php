@@ -7,7 +7,6 @@
     <title>PHP & Ajax Load More Pagination</title>
     <script src="js/jquery.js"></script>
     <style>
-        /* style.css */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -96,62 +95,41 @@
                         <th>Name</th>
                     </tr>
                 </thead>
-
-
+                <tbody>
+                    <!-- Dynamic data will be appended here -->
+                </tbody>
             </table>
         </div>
-
-
-
     </div>
 
     <script>
         $(document).ready(function() {
             function loadTable(page) {
-
-                // $.ajax({
-                //     url: "ajax-load-more.php",
-                //     type: "post",
-                //     data: {
-                //         f_name: page,
-                //     },
-                //     success: function(data) {
-
-                //         $("#table-data").append(data);
-
-                //     }
-                // })
-
                 $.ajax({
                     url: "ajax-load-more.php",
                     type: "post",
                     data: { page_no: page },
                     success: function(data) {
-
-                        $("#table-data").append(data);
-
+                        if (data.trim() === "") {
+                            $("#ajaxbtn").remove(); // Remove the button if no more data
+                        } else {
+                            $("#table-data #pagination").remove(); // Remove old pagination
+                            $("#table-data").append(data); // Append new rows and pagination
+                        }
                     }
-                })
-
-
+                });
             }
 
-            loadTable();
+            // Initial load
+            loadTable(0);
 
+            // Load more on button click
             $(document).on("click", "#ajaxbtn", function() {
-                var page = $(this).data('aid');
-
-
-                loadTable(page);
-            })
-
-
-           
-
+                var page = $(this).data('id'); // Get the page number
+                loadTable(page); // Load the next set of records
+            });
         });
     </script>
-
-
 </body>
 
 </html>
