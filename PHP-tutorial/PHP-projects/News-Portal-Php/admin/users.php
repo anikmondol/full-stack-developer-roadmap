@@ -17,7 +17,7 @@ if ($_SESSION["role"] == "0") {
             <div class="col-md-12">
                 <?php
 
-                $limit = 5;
+                $limit = 4;
 
                 if (isset($_REQUEST["page"])) {
                     $page = $_REQUEST["page"];

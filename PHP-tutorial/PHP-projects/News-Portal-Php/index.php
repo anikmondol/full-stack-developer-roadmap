@@ -7,7 +7,7 @@
                 <div class="post-container" style="padding: 20px 25px;">
                     <?php
 
-                    $limit = 5;
+                    $limit = 4;
 
                     if (isset($_REQUEST["page"])) {
                         $page = $_REQUEST["page"];

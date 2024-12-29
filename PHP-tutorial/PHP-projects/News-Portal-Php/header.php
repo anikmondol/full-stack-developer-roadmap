@@ -97,9 +97,9 @@ switch ($page) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             if ($row["logo"]) {
 
-                                echo '<a href="post.php"><img style="width: 120px;" src="admin/images/' . htmlspecialchars($row['logo'], ENT_QUOTES, 'UTF-8') . '"></a>';
+                                echo '<a href="index.php"><img style="height: 60px; width: 200px;" src="admin/images/' . htmlspecialchars($row['logo'], ENT_QUOTES, 'UTF-8') . '"></a>';
                             } else {
-                                echo '<a href="post.php"><img class="logo" src="admin/images/news.jpg"></a>';
+                                echo '<a href="index.php"><img style="height: 60px; width: 200px; " class="logo" src="admin/images/news.jpg"></a>';
                             }
                         }
                     } ?>

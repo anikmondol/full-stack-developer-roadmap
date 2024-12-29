@@ -43,14 +43,7 @@
             <th width="70px">Delete</th>
           </tr>
           <tbody id="load-table">
-            <tr>
-              <td class="center">1</td>
-              <td>Name 1</td>
-              <td>25</td>
-              <td>Delhi</td>
-              <td class="center"><button class="edit-btn" data-eid="">Edit</button></td>
-              <td class="center"><button class="delete-btn" data-id="">Delete</button></td>
-            </tr>
+
           </tbody>
         </table>
       </td>
@@ -96,18 +89,90 @@
 
       //Fetch All Records
 
-      
+      function loadTable() {
 
+
+        $.ajax({
+          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-fetch-all.php",
+          type: "get",
+          success: function (data) {
+
+            if (data.status == false) {
+
+              $("#load-table").append(`
+              <tr><td colspan='6'><h2>${data.message}</h2></td></tr>
+              `);
+
+            } else {
+
+              $.each(data, function (key, value) {
+                $("#load-table").append(`
+              <tr>
+                <td>${value.id}</td>
+                <td>${value.student_name}</td>
+                <td>${value.age}</td>
+                <td>${value.city}</td>
+                <td class='center'><button class="edit-btn" data-eid="${value.id}">Edit</button></td>
+                <td class='center'><button class="delete-btn" data-did="${value.id}">Delete</button></td>
+            </tr>
+              
+              `);
+              })
+
+            }
+
+          }
+        })
+
+      }
+
+      loadTable();
 
       //Insert New Record
+
+
 
       //Delete Record
 
       //Fetch Single Record : Show in Modal Box
 
+      $(document).on("click", ".edit-btn", function () {
+        $("#modal").show();
+
+        var studentId = $(this).data("eid");
+        var obj = { sid: studentId };
+        var myJSON = JSON.stringify(obj);
+
+
+
+        $.ajax({
+          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-fetch-single.php",
+          type: "post",
+          data: myJSON,
+          success: function (data) {
+
+
+            $("#edit-id").val(data[0].id);
+            $("#edit-name").val(data[0].student_name);
+            $("#edit-age").val(data[0].age);
+            $("#edit-city").val(data[0].city);
+
+
+
+          }
+        });
+
+      })
+
       //Hide Modal Box
 
+      $("#close-btn").on("click", function () {
+        $("#modal").hide();
+      })
+
       //Update Record
+
+
 
       //Live Search Record
 
