@@ -50,8 +50,8 @@
     </tr>
   </table>
 
-  <div id="error-message" class="messages"></div>
-  <div id="success-message" class="messages"></div>
+  <div id="error-message" class="messages" style="font-size: 16px;"></div>
+  <div id="success-message" class="messages" style="font-size: 16px;"></div>
 
   <!-- Popup Modal Box for Update the Records -->
   <div id="modal">
@@ -87,9 +87,14 @@
   <script type="text/javascript">
     $(document).ready(function () {
 
+      $("#load-table").html("");
+
       //Fetch All Records
 
       function loadTable() {
+
+        $("#load-table").html("");
+
 
 
         $.ajax({
@@ -128,7 +133,93 @@
 
       loadTable();
 
+
+      // show success or error message
+
+      function message(message, status) {
+
+        if (status == true) {
+
+          $("#success-message").html(message).slideDown();
+          $("#error-message").slideUp();
+
+          setTimeout(() => {
+            $("#success-message").slideUp();
+          }, 4000);
+
+        } else if (status == false) {
+
+          $("#error-message").html(message).slideDown();
+          $("#success-message").slideUp();
+
+          setTimeout(() => {
+            $("#error-message").slideUp();
+          }, 4000);
+
+        }
+
+
+      }
+
+      // function for data to json object
+
+      function jsonData(targetFrom) {
+
+
+        var arr = $(targetFrom).serializeArray();
+        var obj = {}
+
+
+        for (let index = 0; index < arr.length; index++) {
+
+          if (arr[index].value == "") {
+            return false;
+          }
+
+          obj[arr[index].name] = arr[index].value;
+
+        }
+
+        var json_string = JSON.stringify(obj);
+
+        return json_string;
+
+
+      }
+
+
+
       //Insert New Record
+
+      $("#save-button").on("click", function (e) {
+        e.preventDefault();
+
+
+        var jsonObj = jsonData("#addForm");
+        
+
+        if (jsonObj == false) {
+          message("All Fields are required", false);
+        } else {
+
+          $.ajax({
+            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-insert.php",
+            type: "post",
+            data: jsonObj,
+
+            success: function (data) {
+
+              message(data.message, data.status);
+
+              if (data.status == true) {
+                loadTable();
+                $("#addForm").trigger("reset");
+              }
+            }
+          });
+        }
+
+      })
 
 
 
@@ -143,6 +234,8 @@
         var obj = { sid: studentId };
         var myJSON = JSON.stringify(obj);
 
+        
+
 
 
         $.ajax({
@@ -150,14 +243,13 @@
           type: "post",
           data: myJSON,
           success: function (data) {
+          
 
 
             $("#edit-id").val(data[0].id);
             $("#edit-name").val(data[0].student_name);
             $("#edit-age").val(data[0].age);
             $("#edit-city").val(data[0].city);
-
-
 
           }
         });
@@ -172,6 +264,42 @@
 
       //Update Record
 
+
+      $("#edit-submit").on("click", function (e) {
+        e.preventDefault();
+
+
+        var jsonObj = jsonData("#edit-form");
+        
+
+        
+
+        if (jsonObj == false) {
+          message("All Fields are required", false);
+        } else {
+
+          console.log(jsonObj);
+          $.ajax({
+            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-update.php",
+            type: "post",
+            data: jsonObj,
+
+            success: function (data) {
+
+
+              
+
+              message(data.message, data.status);
+
+              if (data.status == true) {
+                $("#modal").hide();
+                loadTable();
+              }
+            }
+          });
+        }
+
+      })
 
 
       //Live Search Record

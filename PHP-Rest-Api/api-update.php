@@ -8,17 +8,17 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$student_id = $data['student_id'];
-$student_name = $data['student_name'];
-$student_age = $data['student_age'];
-$student_city = $data['student_city'];
+$id = $data['sid'];
+$sname = $data['sname'];
+$sage = $data['sage'];
+$scity = $data['scity'];
 
 
 
 include("config.php");
 
 
-$sql = "UPDATE `users` SET `student_name`='$student_name',`age`=$student_age,`city`='$student_city' WHERE id = $student_id";
+$sql = "UPDATE `users` SET `student_name`='$sname',`age`=$sage,`city`='$scity' WHERE id = $id";
 
 
 if (mysqli_query($conn, $sql)) {

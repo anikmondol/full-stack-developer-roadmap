@@ -17,6 +17,11 @@ body{
   background: #5D3F6A;
   color: #fff;
 }
+
+.text{
+  font-size: 10px !important;
+}
+
 h1{
   float: left;
   margin: 15px;
