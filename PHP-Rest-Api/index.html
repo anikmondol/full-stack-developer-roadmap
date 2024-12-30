@@ -92,11 +92,7 @@
       //Fetch All Records
 
       function loadTable() {
-
         $("#load-table").html("");
-
-
-
         $.ajax({
           url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-fetch-all.php",
           type: "get",
@@ -118,7 +114,7 @@
                 <td>${value.age}</td>
                 <td>${value.city}</td>
                 <td class='center'><button class="edit-btn" data-eid="${value.id}">Edit</button></td>
-                <td class='center'><button class="delete-btn" data-did="${value.id}">Delete</button></td>
+                <td class='center'><button class="delete-btn" data-id="${value.id}">Delete</button></td>
             </tr>
               
               `);
@@ -132,8 +128,6 @@
       }
 
       loadTable();
-
-
       // show success or error message
 
       function message(message, status) {
@@ -181,13 +175,8 @@
         }
 
         var json_string = JSON.stringify(obj);
-
         return json_string;
-
-
       }
-
-
 
       //Insert New Record
 
@@ -196,7 +185,7 @@
 
 
         var jsonObj = jsonData("#addForm");
-        
+
 
         if (jsonObj == false) {
           message("All Fields are required", false);
@@ -220,10 +209,38 @@
         }
 
       })
-
-
-
       //Delete Record
+
+      $(document).on("click", ".delete-btn", function () {
+
+        if (confirm("Do you really want to delete this record ?")) {
+
+
+          var studentId = $(this).data("id");
+          var row = this;
+          var obj = { sid: studentId };
+          var myJSON = JSON.stringify(obj);
+
+          $.ajax({
+            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-delete.php",
+            type: "post",
+            data: myJSON,
+            success: function (data) {
+
+              message(data.message, data.status);
+
+              if (data.status == true) {
+                loadTable();
+                $(row).closest("tr").fadeOut();
+              }
+
+            }
+          });
+
+        }
+
+
+      })
 
       //Fetch Single Record : Show in Modal Box
 
@@ -233,19 +250,11 @@
         var studentId = $(this).data("eid");
         var obj = { sid: studentId };
         var myJSON = JSON.stringify(obj);
-
-        
-
-
-
         $.ajax({
           url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-fetch-single.php",
           type: "post",
           data: myJSON,
           success: function (data) {
-          
-
-
             $("#edit-id").val(data[0].id);
             $("#edit-name").val(data[0].student_name);
             $("#edit-age").val(data[0].age);
@@ -267,30 +276,16 @@
 
       $("#edit-submit").on("click", function (e) {
         e.preventDefault();
-
-
         var jsonObj = jsonData("#edit-form");
-        
-
-        
-
         if (jsonObj == false) {
           message("All Fields are required", false);
         } else {
-
-          console.log(jsonObj);
           $.ajax({
             url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-update.php",
             type: "post",
             data: jsonObj,
-
             success: function (data) {
-
-
-              
-
               message(data.message, data.status);
-
               if (data.status == true) {
                 $("#modal").hide();
                 loadTable();
@@ -298,11 +293,52 @@
             }
           });
         }
-
       })
 
 
       //Live Search Record
+
+
+      $("#search").on("keyup", function () {
+
+        $("#load-table").html("");
+
+        var search_term = $(this).val();
+
+        $.ajax({
+          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-search.php?search=" + search_term,
+          type: "GET",
+          success: function (data) {
+
+
+            if (data.status == false) {
+
+              $("#load-table").append(`
+                <tr><td colspan='6'><h4>${data.message}</h4></td></tr>
+                `); 
+            } else {
+              $.each(data, function (key, value) {
+                $("#load-table").append(`
+                    <tr>
+                      <td>${value.id}</td>
+                      <td>${value.student_name}</td>
+                      <td>${value.age}</td>
+                      <td>${value.city}</td>
+                      <td class='center'><button class="edit-btn" data-eid="${value.id}">Edit</button></td>
+                      <td class='center'><button class="delete-btn" data-id="${value.id}">Delete</button></td>
+                    </tr>
+
+                    `);
+              })
+
+            }
+
+          }
+        });
+
+
+      })
+
 
 
     });
