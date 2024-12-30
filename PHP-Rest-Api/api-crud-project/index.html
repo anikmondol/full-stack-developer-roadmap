@@ -94,7 +94,7 @@
       function loadTable() {
         $("#load-table").html("");
         $.ajax({
-          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-fetch-all.php",
+          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-crud-project/api-fetch-all.php",
           type: "get",
           success: function (data) {
 
@@ -192,7 +192,7 @@
         } else {
 
           $.ajax({
-            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-insert.php",
+            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-crud-project/api-insert.php",
             type: "post",
             data: jsonObj,
 
@@ -222,7 +222,7 @@
           var myJSON = JSON.stringify(obj);
 
           $.ajax({
-            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-delete.php",
+            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-crud-project/api-delete.php",
             type: "post",
             data: myJSON,
             success: function (data) {
@@ -251,7 +251,7 @@
         var obj = { sid: studentId };
         var myJSON = JSON.stringify(obj);
         $.ajax({
-          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-fetch-single.php",
+          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-crud-project/api-fetch-single.php",
           type: "post",
           data: myJSON,
           success: function (data) {
@@ -281,7 +281,7 @@
           message("All Fields are required", false);
         } else {
           $.ajax({
-            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-update.php",
+            url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-crud-project/api-update.php",
             type: "post",
             data: jsonObj,
             success: function (data) {
@@ -306,7 +306,7 @@
         var search_term = $(this).val();
 
         $.ajax({
-          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-search.php?search=" + search_term,
+          url: "http://localhost/full-stack-developer-roadmap/PHP-Rest-Api/api-crud-project/api-search.php?search=" + search_term,
           type: "GET",
           success: function (data) {
 
