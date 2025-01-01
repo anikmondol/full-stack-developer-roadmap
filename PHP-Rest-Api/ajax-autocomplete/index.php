@@ -56,7 +56,9 @@
             }
           });
         } else {
+
           $("#cityList").fadeOut("fast");
+          $("#table-data").html("");
         }
       });
 
@@ -83,7 +85,9 @@
       }
     });
   } else {
+    
     alert("Please enter a city name.");
+    $("#table-data").html("");
   }
 });
 
