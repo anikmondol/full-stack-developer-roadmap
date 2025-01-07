@@ -40,6 +40,19 @@ $result = mysqli_fetch_assoc($users);
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-12">
+                    <?php if (isset($_SESSION['update'])) :  ?>
+                        <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
+                            <div class="custom-alert-icon icon-info"><i class="material-icons-outlined">done</i></div>
+                            <div class="alert-content">
+                                <span class="alert-title"><span class="m-1"><?php echo $_SESSION['update']; ?></span> </span>
+                            </div>
+                        </div>
+                    <?php endif;
+                    unset($_SESSION['update']); ?>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-12">
@@ -56,6 +69,19 @@ $result = mysqli_fetch_assoc($users);
             </div>
 
 
+            <div class="row">
+                <div class="col-12">
+                    <?php if (isset($_SESSION['duplicate'])) :  ?>
+                        <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
+                            <div class="custom-alert-icon icon-warning"><i class="material-icons-outlined">warning</i></div>
+                            <div class="alert-content">
+                                <span class="alert-title text-danger"><span class="m-1"><?php echo $_SESSION['duplicate']; ?></span> </span>
+                            </div>
+                        </div>
+                    <?php endif;
+                    unset($_SESSION['duplicate']); ?>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-12">

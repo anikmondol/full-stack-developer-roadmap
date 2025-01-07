@@ -35,14 +35,14 @@ if (isset($_REQUEST['submit'])) {
         $_SESSION["email_error"] = "Invalid email provide!!!";
         $flag = true;
         header("location: create.php");
-    } 
+    }
 
 
     if (!$phone) {
         $_SESSION["phone_error"] = "Phone Field is Required!!!";
         $flag = true;
         header("location: create.php");
-    } 
+    }
 
     if (!$address) {
         $_SESSION["address_error"] = "Address Field is Required!!!";
@@ -107,5 +107,69 @@ if (isset($_GET['status_id'])) {
         mysqli_query($conn, $update_query);
         $_SESSION["deactive_status"] = "Students status deactive successfully !!!";
         header("location: students.php");
+    }
+}
+
+
+
+if (isset($_REQUEST['edit_btn']) && isset($_REQUEST['edit_id'])) {
+
+
+
+    $flag = false;
+
+    $name = trim($_REQUEST['name']);
+    $email = trim($_REQUEST['email']);
+    $phone = trim($_REQUEST['phone']);
+    $address = trim($_REQUEST['address']);
+
+    $id = $_REQUEST['edit_id'];
+
+
+    if (!$name) {
+        $flag = true;
+    }
+
+
+    // email regex 
+    $email_regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
+
+    if (!$email) {
+        $flag = true;
+    } elseif (!preg_match($email_regex, $email)) {
+        $flag = true;
+    }
+
+
+    if (!$phone) {
+        $flag = true;
+    }
+
+    if (!$address) {
+        $flag = true;
+    }
+
+
+
+    $email_query = "SELECT COUNT(*) AS result FROM `students` WHERE email='$email' And id != $id";
+    $connect = mysqli_query($conn, $email_query);
+    $result = mysqli_fetch_assoc($connect)['result'];
+
+
+
+    if ($flag) {
+        $_SESSION["query_error"] = "Your Information doesn't match with our records !!!";
+        header("location: projects.php");
+    } else {
+
+        if ($result > 0) {
+            $_SESSION['duplicate'] = "Email is Duplicate !!";
+            header("location: students.php");
+        } else {
+            $createQuery = "UPDATE `students` SET `name`='$name',`email`='$email',`phone`='$phone',`address`='$address' WHERE id = $id";
+            mysqli_query($conn, $createQuery);
+            $_SESSION['update'] = "Data Update Successfully !!";
+            header("location: students.php");
+        }
     }
 }
