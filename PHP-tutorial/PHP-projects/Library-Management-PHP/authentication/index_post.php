@@ -65,7 +65,7 @@ if (isset($_REQUEST['login'])) {
             $_SESSION['auth_email'] = $user['email'];
 
 
-            header("location: ../dashboard/index.php");
+            header("location: ../dashboard/home/home.php");
 
         }else{
 
