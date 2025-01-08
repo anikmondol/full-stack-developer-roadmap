@@ -3,7 +3,11 @@
 include("../master/header.php");
 
 
-$books_query = "select b.*, c.name as cat_name from books b left join categories c on c.id = b.category_id";
+$books_query = "select l.*, b.title as book_title, s.name as student_name 
+        from books_loans l
+        inner join books b on b.id = l.book_id
+        inner join students s on s.id = l.student_id
+        order by l.id desc";
 $books = mysqli_query($conn, $books_query);
 $result = mysqli_fetch_assoc($books);
 
@@ -19,7 +23,7 @@ $result = mysqli_fetch_assoc($books);
             <div class="row">
                 <div class="col">
                     <div class="page-description">
-                        <h2 class="fw-bold">Manage Books</h2>
+                        <h2 class="fw-bold">Manage Books Loans</h2>
                     </div>
                 </div>
             </div>
@@ -110,12 +114,12 @@ $result = mysqli_fetch_assoc($books);
                                     <tr>
                                         <th>S.NO</th>
                                         <th>Books Name</th>
-                                        <th>Publication Year</th>
-                                        <th>Author Name On</th>
-                                        <th>ISBN Number</th>
-                                        <th>Category Name</th>
-                                        <th>Registered On</th>
+                                        <th>Students Name</th>
+                                        <th>Loan Date</th>
+                                        <th>Return Date</th>
                                         <th>Status</th>
+                                        <th>Registered On</th>
+                                       
                                         <th>Action</th>
                                     </tr>
                                     </tr>
@@ -141,23 +145,22 @@ $result = mysqli_fetch_assoc($books);
 
                                         ?>
                                             <tr>
-                                                <td class="text-center" ><?= $number++; ?></td>
-                                                <td class="text-center" ><?= $item['title'] ?></td>
-                                                <td class="text-center" ><?= $item['publication_year'] ?></td>
-                                                <td class="text-center" ><?= $item['author'] ?></td>
-                                                <td class="text-center" ><?= $item['isbn'] ?></td>
-                                                <td class="text-center" ><?= $item['cat_name'] ?></td>
-                                                <td class="text-center" ><?= date("d-m-Y h:i:s A", strtotime($item["created_at"])); ?></td>
-                                                <td class="text-center" >
+                                                <td class="text-center"><?= $number++; ?></td>
+                                                <td class="text-center"><?= $item['book_title'] ?></td>
+                                                <td class="text-center"><?= $item['student_name'] ?></td>
+                                                <td class="text-center"><?= $item['loan_date'] ?></td>
+                                                <td class="text-center"><?= $item['return_date'] ?></td>
+                                                <td class="text-center">
                                                     <?php
                                                     if (($item['status'] == 'deactive')) {  ?>
                                                         <button class=" btn btn-warning btn-sm ">
-                                                            <i class="material-icons">notifications_off</i> Deactive</button>
+                                                            <i class="material-icons">notifications_off</i> No Returned</button>
                                                     <?php } else { ?>
                                                         <button class=" btn btn-success btn-sm">
-                                                            <i class="material-icons">notifications</i> Active</button>
+                                                            <i class="material-icons">notifications</i> Returned</button>
                                                     <?php } ?>
                                                 </td>
+                                                <td class="text-center"><?= date("d-m-Y h:i:s A", strtotime($item["created_at"])); ?></td>
                                                 <td class="text-center"><span class="material-icons-two-tone" data-bs-toggle="modal" data-bs-target="#<?= $modalId; ?>"> more_vert </span></td>
 
                                                 <!-- Vertically centered modal with dynamic modal ID -->
@@ -175,11 +178,11 @@ $result = mysqli_fetch_assoc($books);
                                                                 if (($item['status'] == 'deactive')) {  ?>
                                                                     <a href="store.php?status_id=<?= $item['id'] ?>">
                                                                         <button class=" btn btn-success btn-sm">
-                                                                            <i class="material-icons">notifications</i> Active</button>
+                                                                            <i class="material-icons">notifications</i> Returned</button>
                                                                     </a>
                                                                 <?php } else { ?>
                                                                     <a href="store.php?status_id=<?= $item['id'] ?>"> <button class=" btn btn-warning btn-sm ">
-                                                                            <i class="material-icons">notifications_off</i> Deactive</button>
+                                                                            <i class="material-icons">notifications_off</i> No Returned</button>
                                                                     </a>
                                                                 <?php } ?>
                                                             </div>

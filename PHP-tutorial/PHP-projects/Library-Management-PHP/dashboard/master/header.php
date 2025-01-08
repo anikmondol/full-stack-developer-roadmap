@@ -78,6 +78,14 @@ $result = mysqli_fetch_assoc($users);
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+        $(".flatpickr1").flatpickr();
+
+        $(".flatpickr2").flatpickr();
+    </script>
+
+
 </head>
 
 <body>
@@ -113,6 +121,31 @@ $result = mysqli_fetch_assoc($users);
                             </li>
                             <li>
                                 <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../books/books.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="<?= ($link == 'students.php') ? 'active-page' : '' ?>">
+                        <a href="#"><i class="material-icons-two-tone">group_add</i>Student's Manage<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        <ul style="display: none; padding: 0px; background: none;">
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../students/create.php"> <i class="material-icons-two-tone">playlist_add</i> <span class="mt-1">Add New</span></a>
+                            </li>
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../students/students.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-title">
+                        BUSINESS
+                    </li>
+                    <li class="<?= ($link == 'loans.php') ? 'active-page' : '' ?>">
+                        <a href="#"><i class="material-icons-two-tone">real_estate_agent</i>Book's Loans<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        <ul style="display: none; padding: 0px; background: none;">
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../loans/create.php"> <i class="material-icons-two-tone">playlist_add</i> <span class="mt-1">Add New</span></a>
+                            </li>
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../loans/loans.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
                             </li>
                         </ul>
                     </li>
