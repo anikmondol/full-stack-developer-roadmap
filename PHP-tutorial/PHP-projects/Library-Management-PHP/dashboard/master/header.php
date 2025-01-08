@@ -149,14 +149,14 @@ $result = mysqli_fetch_assoc($users);
                             </li>
                         </ul>
                     </li>
-                    <li class="<?= ($link == 'students.php') ? 'active-page' : '' ?>">
-                        <a href="#"><i class="material-icons-two-tone">group_add</i>Student's Manage<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                    <li class="<?= ($link == 'membership.php') ? 'active-page' : '' ?>">
+                        <a href="#"><i class="material-icons-two-tone">contact_emergency</i>Membership<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                         <ul style="display: none; padding: 0px; background: none;">
                             <li>
-                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../students/create.php"> <i class="material-icons-two-tone">playlist_add</i> <span class="mt-1">Add New</span></a>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../membership/create.php"> <i class="material-icons-two-tone">playlist_add</i> <span class="mt-1">Add New</span></a>
                             </li>
                             <li>
-                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../students/students.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../membership/membership.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
                             </li>
                         </ul>
                     </li>
