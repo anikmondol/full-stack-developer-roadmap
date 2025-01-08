@@ -3,9 +3,9 @@
 include("../master/header.php");
 
 
-$users_query = "select * FROM users";
-$users = mysqli_query($conn, $users_query);
-$result = mysqli_fetch_assoc($users);
+$students_query = "select * FROM students";
+$students = mysqli_query($conn, $students_query);
+$result = mysqli_fetch_assoc($students);
 
 
 
@@ -136,7 +136,7 @@ $result = mysqli_fetch_assoc($users);
                                         $id = $_SESSION['auth_id'];
                                     ?>
 
-                                        <?php foreach ($users as $item) :
+                                        <?php foreach ($students as $item) :
 
                                             $modalId = "centeredModal" . $item['id'];
 

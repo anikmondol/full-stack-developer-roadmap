@@ -96,13 +96,28 @@ $result = mysqli_fetch_assoc($users);
             <div class="app-menu">
                 <ul class="accordion-menu">
                     <li class="sidebar-title">
-                        Setting
+                        Core
                     </li>
                     <li class="<?= ($link == 'home.php') ? 'active-page' : '' ?>">
                         <a href="../home/home.php" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
                     </li>
-                    <li class="">
-                        <a href="#"><i class="material-icons-two-tone">group_add</i>Manage Students<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                    <div class="divider"></div>
+                    <li class="sidebar-title">
+                        Inventory
+                    </li>
+                    <li class="<?= ($link == 'books.php') ? 'active-page' : '' ?>">
+                        <a href="#"><i class="material-icons-two-tone">menu_book</i>Book's Manage<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        <ul style="display: none; padding: 0px; background: none;">
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../books/create.php"> <i class="material-icons-two-tone">playlist_add</i> <span class="mt-1">Add New</span></a>
+                            </li>
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../books/books.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="<?= ($link == 'students.php') ? 'active-page' : '' ?>">
+                        <a href="#"><i class="material-icons-two-tone">group_add</i>Student's Manage<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                         <ul style="display: none; padding: 0px; background: none;">
                             <li>
                                 <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../students/create.php"> <i class="material-icons-two-tone">playlist_add</i> <span class="mt-1">Add New</span></a>

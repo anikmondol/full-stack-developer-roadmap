@@ -159,7 +159,7 @@ if (isset($_REQUEST['edit_btn']) && isset($_REQUEST['edit_id'])) {
 
     if ($flag) {
         $_SESSION["query_error"] = "Your Information doesn't match with our records !!!";
-        header("location: projects.php");
+        header("location: students.php");
     } else {
 
         if ($result > 0) {

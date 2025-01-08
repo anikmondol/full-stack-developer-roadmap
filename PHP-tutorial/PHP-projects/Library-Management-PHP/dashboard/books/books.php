@@ -3,9 +3,9 @@
 include("../master/header.php");
 
 
-$students_query = "select * FROM students";
-$students = mysqli_query($conn, $students_query);
-$result = mysqli_fetch_assoc($students);
+$books_query = "select b.*, c.name as cat_name from books b left join categories c on c.id = b.category_id";
+$books = mysqli_query($conn, $books_query);
+$result = mysqli_fetch_assoc($books);
 
 ?>
 
@@ -19,7 +19,7 @@ $result = mysqli_fetch_assoc($students);
             <div class="row">
                 <div class="col">
                     <div class="page-description">
-                        <h2 class="fw-bold">Students List</h2>
+                        <h2 class="fw-bold">Manage Books</h2>
                     </div>
                 </div>
             </div>
@@ -28,15 +28,15 @@ $result = mysqli_fetch_assoc($students);
 
             <div class="row">
                 <div class="col-12">
-                    <?php if (isset($_SESSION['register_success'])) :  ?>
+                    <?php if (isset($_SESSION['insert'])) :  ?>
                         <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
                             <div class="custom-alert-icon icon-dark"><i class="material-icons-outlined">done</i></div>
                             <div class="alert-content">
-                                <span class="alert-title"><span class="m-1"><?php echo $_SESSION['register_success']; ?></span> </span>
+                                <span class="alert-title"><span class="m-1"><?php echo $_SESSION['insert']; ?></span> </span>
                             </div>
                         </div>
                     <?php endif;
-                    unset($_SESSION['register_success']); ?>
+                    unset($_SESSION['insert']); ?>
                 </div>
             </div>
 
@@ -65,34 +65,6 @@ $result = mysqli_fetch_assoc($students);
                         </div>
                     <?php endif;
                     unset($_SESSION['delete']); ?>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <?php if (isset($_SESSION['query_error'])) :  ?>
-                        <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
-                            <div class="custom-alert-icon icon-warning"><i class="material-icons-outlined">warning</i></div>
-                            <div class="alert-content">
-                                <span class="alert-title text-danger"><span class="m-1"><?php echo $_SESSION['query_error']; ?></span> </span>
-                            </div>
-                        </div>
-                    <?php endif;
-                    unset($_SESSION['query_error']); ?>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <?php if (isset($_SESSION['duplicate'])) :  ?>
-                        <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
-                            <div class="custom-alert-icon icon-warning"><i class="material-icons-outlined">warning</i></div>
-                            <div class="alert-content">
-                                <span class="alert-title text-danger"><span class="m-1"><?php echo $_SESSION['duplicate']; ?></span> </span>
-                            </div>
-                        </div>
-                    <?php endif;
-                    unset($_SESSION['duplicate']); ?>
                 </div>
             </div>
 
@@ -137,10 +109,12 @@ $result = mysqli_fetch_assoc($students);
                                     <tr>
                                     <tr>
                                         <th>S.NO</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
+                                        <th>Books Name</th>
+                                        <th>Publication Year</th>
+                                        <th>Author Name On</th>
+                                        <th>ISBN Number</th>
+                                        <th>Category Name</th>
                                         <th>Registered On</th>
-                                        <th>Update At</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -161,18 +135,20 @@ $result = mysqli_fetch_assoc($students);
                                         $id = $_SESSION['auth_id'];
                                     ?>
 
-                                        <?php foreach ($students as $item) :
+                                        <?php foreach ($books as $item) :
 
                                             $modalId = "centeredModal" . $item['id'];
 
                                         ?>
                                             <tr>
-                                                <td class="text-center"><?= $number++; ?></td>
-                                                <td class="text-center"><?= $item['name'] ?></td>
-                                                <td class="text-center"><?= $item['email'] ?></td>
-                                                <td class="text-center"><?= date("d-m-Y h:i:s A", strtotime($item["created_at"])); ?></td>
-                                                <td class="text-center"><?= date("d-m-Y h:i:s A", strtotime($item["updated_at"])); ?></td>
-                                                <td class="text-center">
+                                                <td class="text-center" ><?= $number++; ?></td>
+                                                <td class="text-center" ><?= $item['title'] ?></td>
+                                                <td class="text-center" ><?= $item['publication_year'] ?></td>
+                                                <td class="text-center" ><?= $item['author'] ?></td>
+                                                <td class="text-center" ><?= $item['isbn'] ?></td>
+                                                <td class="text-center" ><?= $item['cat_name'] ?></td>
+                                                <td class="text-center" ><?= date("d-m-Y", strtotime($item["created_at"])); ?></td>
+                                                <td class="text-center" >
                                                     <?php
                                                     if (($item['status'] == 'deactive')) {  ?>
                                                         <button class=" btn btn-warning btn-sm ">
@@ -182,7 +158,7 @@ $result = mysqli_fetch_assoc($students);
                                                             <i class="material-icons">notifications</i> Active</button>
                                                     <?php } ?>
                                                 </td>
-                                                <td><span class="material-icons-two-tone" data-bs-toggle="modal" data-bs-target="#<?= $modalId; ?>"> more_vert </span></td>
+                                                <td class="text-center"><span class="material-icons-two-tone" data-bs-toggle="modal" data-bs-target="#<?= $modalId; ?>"> more_vert </span></td>
 
                                                 <!-- Vertically centered modal with dynamic modal ID -->
                                                 <div class="modal fade" id="<?= $modalId; ?>" tabindex="-1" aria-labelledby="<?= $modalId; ?>Label" aria-hidden="true">
