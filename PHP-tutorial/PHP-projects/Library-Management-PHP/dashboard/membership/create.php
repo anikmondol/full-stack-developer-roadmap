@@ -37,7 +37,7 @@ $result = mysqli_fetch_assoc($genders);
                                 <div class="col-md-6">
 
                                     <label class="form-label">Title</label>
-                                    <input type="text" class="form-control" name="title" />
+                                    <input type="text" class="form-control <?= (isset($_SESSION["title_error"])) ? "is-invalid" : ""; ?>" name="title" />
 
                                     <!-- name error start -->
                                     <?php if (isset($_SESSION["title_error"])) {
@@ -52,7 +52,7 @@ $result = mysqli_fetch_assoc($genders);
                                 <div class="col-md-6">
 
                                     <label class="form-label">Amount</label>
-                                    <input type="text" class="form-control" name="amount" />
+                                    <input type="text" class="form-control <?= (isset($_SESSION["amount_error"])) ? "is-invalid" : ""; ?>" name="amount" />
 
                                     <!-- name error start -->
                                     <?php if (isset($_SESSION["amount_error"])) {
@@ -69,7 +69,7 @@ $result = mysqli_fetch_assoc($genders);
 
                                 <div class="col-md-6">
                                     <label for="signUpUserCategory" class="form-label">Duration</label>
-                                    <select name="duration" id="" class="form-control">
+                                    <select name="duration" id="" class="form-control <?= (isset($_SESSION["duration_error"])) ? "is-invalid" : ""; ?>">
                                         <option value="">Please Select</option>
 
                                         <?php
@@ -93,17 +93,11 @@ $result = mysqli_fetch_assoc($genders);
 
                                 <div class="col-md-6">
                                     <label for="signUpUserCategory" class="form-label">Gender</label>
-                                    <select name="gender" id="" class="form-control">
-                                        <option value="">Please Select</option>
-
-                                        <?php
-                                        foreach ($genders as  $value) {
-                                        ?>
-                                            <option value="<?= $value["id"]; ?>"><?= $value["title"]; ?></option>
-
-                                        <?php } ?>
+                                    <select class="form-select form-control <?= (isset($_SESSION["gender_error"])) ? "is-invalid" : ""; ?>" id="validationTooltip04" name="money_status">
+                                        <option selected="" value="">Please Select</option>
+                                        <option value="paid">Paid </option>
+                                        <option value="unpaid">Unpaid </option>
                                     </select>
-
                                     <!-- name error start -->
                                     <?php if (isset($_SESSION["gender_error"])) {
                                     ?>

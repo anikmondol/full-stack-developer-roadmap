@@ -13,7 +13,7 @@ if (isset($_REQUEST['submit'])) {
     $title = trim($_REQUEST['title']);
     $amount = trim($_REQUEST['amount']);
     $duration = trim($_REQUEST['duration']);
-    $gender = trim($_REQUEST['gender']);
+    $money_status = trim($_REQUEST['money_status']);
 
 
 
@@ -38,8 +38,8 @@ if (isset($_REQUEST['submit'])) {
         header("location: create.php");
     }
 
-    if (!$gender) {
-        $_SESSION["gender_error"] = "Return Date Field is Required!!!";
+    if (!$money_status) {
+        $_SESSION["gender_error"] = "Money status Field is Required!!!";
         $flag = true;
         header("location: create.php");
     }
@@ -63,7 +63,7 @@ if (isset($_REQUEST['submit'])) {
         $end_date = date("Y-m-d", strtotime("+$duration month", $start_time));
 
 
-        $createQuery = "INSERT INTO `membership`(`title`, `payments_id`, `gender_id`, `start_date`, `end_date`, `amount`) VALUES ('$title','$duration','$gender','$start_date','$end_date','$amount')";
+        $createQuery = "INSERT INTO `membership`(`title`, `payments_id`, `money_status`, `start_date`, `end_date`, `amount`) VALUES ('$title','$duration','$money_status','$start_date','$end_date','$amount')";
         mysqli_query($conn, $createQuery);
         $_SESSION['insert'] = "Loan Insert Successfully !!";
         header("location: membership.php");
@@ -114,39 +114,20 @@ if (isset($_GET['status_id'])) {
 if (isset($_REQUEST['edit_btn']) && isset($_REQUEST['edit_id'])) {
 
 
-
     $flag = false;
 
-    $title = trim($_REQUEST['student']);
-    $amount = trim($_REQUEST['book']);
+    $title = trim($_REQUEST['title']);
+    $amount = trim($_REQUEST['amount']);
     $duration = trim($_REQUEST['duration']);
-    $gender = trim($_REQUEST['gender']);
+    $money_status = trim($_REQUEST['money_status']);
 
 
     $id = $_REQUEST['edit_id'];
 
 
-
-
-
-    if (!$title) {
+    if (!$title || !$amount || !$duration || !$money_status) {
         $flag = true;
     }
-
-
-    if (!$amount) {
-        $flag = true;
-    }
-
-    if (!$duration) {
-        $flag = true;
-    }
-
-    if (!$gender) {
-        $flag = true;
-    }
-
-
 
 
     if ($flag) {
@@ -154,7 +135,7 @@ if (isset($_REQUEST['edit_btn']) && isset($_REQUEST['edit_id'])) {
         header("location: membership.php");
     } else {
 
-        $createQuery = "UPDATE `books_Memberships` SET `book_id`='$amount',`student_id`='$title',`duration`='$duration',`gender`='$gender' WHERE id = $id";
+        $createQuery = "UPDATE `membership` SET `title`='$title',`payments_id`='$duration',`money_status`='$money_status',`amount`='$amount' WHERE id = $id";
         mysqli_query($conn, $createQuery);
         $_SESSION['update'] = "Data Update Successfully !!";
         header("location: membership.php");

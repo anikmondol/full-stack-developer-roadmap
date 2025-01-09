@@ -3,7 +3,7 @@
 include("../master/header.php");
 
 
-$memberships_query = "SELECT m.*, g.title AS title, p.name AS name FROM membership m INNER JOIN genders g ON g.id = m.gender_id INNER JOIN payments p ON p.id = m.payments_id ORDER BY m.id DESC;
+$memberships_query = "SELECT m.*, p.name AS name FROM membership m  INNER JOIN payments p ON p.id = m.payments_id ORDER BY m.id DESC;
 ";
 $memberships = mysqli_query($conn, $memberships_query);
 $result = mysqli_fetch_assoc($memberships);
@@ -20,7 +20,7 @@ $result = mysqli_fetch_assoc($memberships);
             <div class="row">
                 <div class="col">
                     <div class="page-description">
-                        <h2 class="fw-bold">Students List</h2>
+                        <h2 class="fw-bold">Membership List</h2>
                     </div>
                 </div>
             </div>
@@ -85,20 +85,6 @@ $result = mysqli_fetch_assoc($memberships);
 
             <div class="row">
                 <div class="col-12">
-                    <?php if (isset($_SESSION['duplicate'])) :  ?>
-                        <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
-                            <div class="custom-alert-icon icon-warning"><i class="material-icons-outlined">warning</i></div>
-                            <div class="alert-content">
-                                <span class="alert-title text-danger"><span class="m-1"><?php echo $_SESSION['duplicate']; ?></span> </span>
-                            </div>
-                        </div>
-                    <?php endif;
-                    unset($_SESSION['duplicate']); ?>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
                     <?php if (isset($_SESSION['deactive_status'])) :  ?>
                         <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
                             <div class="custom-alert-icon icon-warning"><i class="material-icons-outlined">warning</i></div>
@@ -139,8 +125,8 @@ $result = mysqli_fetch_assoc($memberships);
                                     <tr>
                                         <th>S.NO</th>
                                         <th>Title</th>
-                                        <th>Gender</th>
                                         <th>Amount</th>
+                                        <th>Paid</th>
                                         <th>Duration</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
@@ -155,7 +141,7 @@ $result = mysqli_fetch_assoc($memberships);
                                     if (empty($result)):
                                     ?>
                                         <tr>
-                                            <th colspan="8" class="text-center text-danger">
+                                            <th colspan="9" class="text-center text-danger">
                                                 No data found!!
                                             </th>
                                         </tr>
@@ -171,10 +157,9 @@ $result = mysqli_fetch_assoc($memberships);
                                         ?>
                                             <tr>
                                                 <td class="text-center"><?= $number++; ?></td>
-                                                <td class="text-center"><?= $item['amount'] ?></td>
                                                 <td class="text-center"><?= $item['title'] ?></td>
-                                                
                                                 <td class="text-center"><?= $item['amount'] ?></td>
+                                                <td class="text-center"><?= $item['money_status'] ?></td>
                                                 <td class="text-center"><?= $item['name'] ?></td>
                                                 <td class="text-center"><?= $item['start_date'] ?></td>
                                                 <td class="text-center"><?= $item['end_date'] ?></td>
