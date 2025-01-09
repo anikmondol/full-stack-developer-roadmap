@@ -149,6 +149,17 @@ $result = mysqli_fetch_assoc($users);
                             </li>
                         </ul>
                     </li>
+                    <li class="<?= ($link == 'loans.php') ? 'active-page' : '' ?>">
+                        <a href="#"><i class="material-icons-two-tone">real_estate_agent</i>Book's Loans<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        <ul style="display: none; padding: 0px; background: none;">
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../loans/create.php"> <i class="material-icons-two-tone">playlist_add</i> <span class="mt-1">Add New</span></a>
+                            </li>
+                            <li>
+                                <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../loans/loans.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="<?= ($link == 'membership.php') ? 'active-page' : '' ?>">
                         <a href="#"><i class="material-icons-two-tone">contact_emergency</i>Membership<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                         <ul style="display: none; padding: 0px; background: none;">
@@ -159,6 +170,9 @@ $result = mysqli_fetch_assoc($users);
                                 <a class="" style="display: flex; align-items: center; gap: 5px; padding: 5px 15px;" href="../membership/membership.php"> <i class="material-icons-two-tone">menu</i> <span class="mt-1">Manage All</span></a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="<?= ($link == 'subscriptions.php') ? 'active-page' : '' ?>">
+                        <a href="../subscriptions/subscriptions.php"><i class="material-icons-two-tone">euro_symbol</i>Subscriptions</a>
                     </li>
                     <li class="<?= ($link == 'logout.php') ? 'active-page' : '' ?>">
                         <a href="../logout/logout.php" class="active"><i class="material-icons-two-tone">logout</i>Logout</a>

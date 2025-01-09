@@ -16,7 +16,7 @@ $result = mysqli_fetch_assoc($categories);
             <div class="row">
                 <div class="col">
                     <div class="page-description">
-                        <h2 class="fw-bold">Add Student's</h2>
+                        <h2 class="fw-bold">Add Book's</h2>
                     </div>
                 </div>
             </div>

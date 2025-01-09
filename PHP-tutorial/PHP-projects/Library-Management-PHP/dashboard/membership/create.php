@@ -21,7 +21,7 @@ $result = mysqli_fetch_assoc($genders);
             <div class="row">
                 <div class="col">
                     <div class="page-description">
-                        <h2 class="fw-bold">Add Loan's</h2>
+                        <h2 class="fw-bold">Add Membership</h2>
                     </div>
                 </div>
             </div>

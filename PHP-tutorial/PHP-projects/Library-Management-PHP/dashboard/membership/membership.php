@@ -111,10 +111,6 @@ $result = mysqli_fetch_assoc($memberships);
                 </div>
             </div>
 
-
-
-
-
             <div class="row">
                 <div class="col">
                     <div class="card">
@@ -126,7 +122,7 @@ $result = mysqli_fetch_assoc($memberships);
                                         <th>S.NO</th>
                                         <th>Title</th>
                                         <th>Amount</th>
-                                        <th>Paid</th>
+                                        <th>Paid Status</th>
                                         <th>Duration</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
@@ -158,7 +154,7 @@ $result = mysqli_fetch_assoc($memberships);
                                             <tr>
                                                 <td class="text-center"><?= $number++; ?></td>
                                                 <td class="text-center"><?= $item['title'] ?></td>
-                                                <td class="text-center"><?= $item['amount'] ?></td>
+                                                <td class="text-center"><b class="fs-5">$<?= $item['amount'] ?></b></td>
                                                 <td class="text-center"><?= $item['money_status'] ?></td>
                                                 <td class="text-center"><?= $item['name'] ?></td>
                                                 <td class="text-center"><?= $item['start_date'] ?></td>
@@ -200,7 +196,9 @@ $result = mysqli_fetch_assoc($memberships);
                                                             </div>
                                                         </div>
                                                     </div>
-                                            </tr>
+                                            
+                                                
+                                                </tr>
                                     <?php endforeach;
                                     endif; ?>
 
