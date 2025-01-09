@@ -107,7 +107,19 @@ $result = mysqli_fetch_assoc($subscription);
                 </div>
             </div>
 
-
+            <div class="row">
+                <div class="col-12">
+                    <?php if (isset($_SESSION['query_error'])) :  ?>
+                        <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
+                            <div class="custom-alert-icon icon-warning"><i class="material-icons-outlined">warning</i></div>
+                            <div class="alert-content">
+                                <span class="alert-title text-danger"><span class="m-1"><?php echo $_SESSION['query_error']; ?></span> </span>
+                            </div>
+                        </div>
+                    <?php endif;
+                    unset($_SESSION['query_error']); ?>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-12">
@@ -207,13 +219,13 @@ $result = mysqli_fetch_assoc($subscription);
                                     <tr>
                                     <tr>
                                         <th>S.NO</th>
-                                       
+
                                         <th>Students Name</th>
                                         <th>Plan</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Status</th>
-                                        
+
                                     </tr>
                                     </tr>
                                 </thead>
@@ -240,32 +252,29 @@ $result = mysqli_fetch_assoc($subscription);
                                             <tr>
                                                 <td class="text-center"><?= $number++; ?></td>
                                                 <td class="text-center"><?= $item['student_name'] ?></td>
-                                                <td class="text-center"> 
-                                                <?php
+                                                <td class="text-center">
+                                                    <?php
                                                     if (($item['title'] == 'Basic')) {  ?>
                                                         <button class=" btn btn-info btn-sm ">Basic</button>
-                                                    <?php }
-                                                    elseif (($item['title'] == 'Diwali')) {  ?>
+                                                    <?php } elseif (($item['title'] == 'Diwali')) {  ?>
                                                         <button class=" btn btn-info btn-sm ">Diwali</button>
-                                                    <?php }
-                                                     elseif (($item['title'] == 'Stander')) {  ?>
+                                                    <?php } elseif (($item['title'] == 'Stander')) {  ?>
                                                         <button class=" btn btn-info btn-sm ">Stander</button>
-                                                    <?php }
-                                                     else { ?>
+                                                    <?php } else { ?>
                                                         <button class=" btn btn-info btn-sm"> Annual</button>
                                                     <?php } ?>
-                                                <b>$<?= $item['amount'] ?></b>
-                                            </td>
+                                                    <b>$<?= $item['amount'] ?></b>
+                                                </td>
                                                 <td class="text-center"><?= $item['start_date'] ?></td>
                                                 <td class="text-center"><?= $item['end_date'] ?></td>
                                                 <td class="text-center">
                                                     <?php
-                                                    if (($item['status'] == 'deactive')) {  ?>
-                                                        <button class=" btn btn-warning btn-sm ">
-                                                            <i class="material-icons">notifications_off</i> No Returned</button>
+                                                    if (($item['end_date'] > date("Y-m-d"))) {  ?>
+                                                        <button class=" btn btn-success btn-sm ">
+                                                            Active</button>
                                                     <?php } else { ?>
                                                         <button class=" btn btn-success btn-sm">
-                                                            <i class="material-icons">notifications</i> Returned</button>
+                                                            Expired</button>
                                                     <?php } ?>
                                                 </td>
 

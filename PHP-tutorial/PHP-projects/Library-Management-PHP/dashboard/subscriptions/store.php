@@ -49,23 +49,35 @@ if (isset($_REQUEST['submit'])) {
         $status = $plan_data_result['status'];
 
 
-        $datetime = date("Y-m-d H:i:s");
-        $start_date = date("Y-m-d");
-        $end_date = date("Y-m-d");
+
+        echo $count_query = "SELECT COUNT(*) AS 'count_result' FROM `subscription_plans` where id = $student";
+        $connect = mysqli_query($conn, $count_query);
 
 
-        
-        ## start date - end date calculation
-        $start_date = date("Y-m-d");
-        $start_time = strtotime($start_date);
-        $end_date = date("Y-m-d", strtotime("+$payments_id month", $start_time));
+        if (mysqli_fetch_assoc($connect)['count_result'] > 0) {
+            $_SESSION['query_error'] = "Membership already exists";
+            header("location: subscriptions.php");
+        } else {
 
 
 
-        $createQuery = "INSERT INTO `subscription_plans`(`id`, `title`, `amount`, `duration`) VALUES ('$student','$title','$amount','$payments_id')";
-        mysqli_query($conn, $createQuery);
-        $_SESSION['insert'] = "Subscriptions Insert Successfully !!";
-        header("location: subscriptions.php");
+            $datetime = date("Y-m-d H:i:s");
+            $start_date = date("Y-m-d");
+            $end_date = date("Y-m-d");
+
+
+
+            ## start date - end date calculation
+            $start_date = date("Y-m-d");
+            $start_time = strtotime($start_date);
+            $end_date = date("Y-m-d", strtotime("+$payments_id month", $start_time));
+
+
+
+            $createQuery = "INSERT INTO `subscription_plans`(`id`, `title`, `amount`, `duration`) VALUES ('$student','$title','$amount','$payments_id')";
+            mysqli_query($conn, $createQuery);
+            $_SESSION['insert'] = "Subscriptions Insert Successfully !!";
+            header("location: subscriptions.php");
+        }
     }
 }
-
