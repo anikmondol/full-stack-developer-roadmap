@@ -99,11 +99,6 @@ $result = mysqli_fetch_assoc($books);
                     unset($_SESSION['active_status']); ?>
                 </div>
             </div>
-
-
-
-
-
             <div class="row">
                 <div class="col">
                     <div class="card">

@@ -217,16 +217,12 @@ $result = mysqli_fetch_assoc($subscription);
                             <table id="datatable3" class="display nowrap" style="width:100%">
                                 <thead>
                                     <tr>
-                                    <tr>
                                         <th>S.NO</th>
-
                                         <th>Students Name</th>
                                         <th>Plan</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Status</th>
-
-                                    </tr>
                                     </tr>
                                 </thead>
                                 <tbody>
