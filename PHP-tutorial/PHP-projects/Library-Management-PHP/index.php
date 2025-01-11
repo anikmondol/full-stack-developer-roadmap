@@ -73,6 +73,21 @@ if (isset($_SESSION['auth_id'])) {
             } ?>
             <!-- login failed  msg end -->
 
+
+            <div class="row">
+                <div class="col-12">
+                    <?php if (isset($_SESSION['update_forget_password'])) :  ?>
+                        <div class="alert alert-custom d-flex align-items-center justify-content-center" role="alert">
+                            <div class="custom-alert-icon icon-info"><i class="material-icons-outlined">done</i></div>
+                            <div class="alert-content">
+                                <span class="alert-title"><span class="m-1"><?php echo $_SESSION['update_forget_password']; ?></span> </span>
+                            </div>
+                        </div>
+                    <?php endif;
+                    unset($_SESSION['update_forget_password']); ?>
+                </div>
+            </div>
+
             <form action="./authentication/index_post.php">
 
                 <div class="auth-credentials m-b-xxl">
