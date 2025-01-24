@@ -19,15 +19,6 @@ return new class extends Migration
             $table->string('book');
             $table->date('due_date')->nullable();
             $table->boolean('status');
-
-
-            // $table->unsignedBigInteger('stu_id');
-            // $table->foreign('stu_id')
-            // ->references('id')
-            // ->on('students')
-            // ->onUpdate('cascade')
-            // ->onDelete('cascade');
-
         });
     }
 
