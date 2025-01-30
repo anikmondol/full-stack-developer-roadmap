@@ -32,9 +32,6 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-
-
-
                     @foreach ($students as $student)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -47,12 +44,17 @@
                                         class="btn btn-sm btn-info">View</button></a>
                                 <a href="{{ route('deleteStudent', $student->id) }}"><button
                                         class="btn btn-sm btn-danger">Delete</button></a>
-                                <a href="{{ route('edit', $student->id) }}"><button class="btn btn-sm btn-warning">Update</button></a>
+                                <a href="{{ route('edit', $student->id) }}"><button
+                                        class="btn btn-sm btn-warning">Update</button></a>
                             </td>
                         </tr>
                     @endforeach
 
                 </table>
+                <div>
+                    {{ $students->links() }}
+
+                </div>
             </div>
         </div>
     </div>

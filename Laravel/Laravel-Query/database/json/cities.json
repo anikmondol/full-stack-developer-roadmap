@@ -1,0 +1,22 @@
+[
+    {
+      "id": 5,
+      "city_name": "Agra"
+    },
+    {
+      "id": 1,
+      "city_name": "Delhi"
+    },
+    {
+      "id": 3,
+      "city_name": "Goa"
+    },
+    {
+      "id": 2,
+      "city_name": "Mumbai"
+    },
+    {
+      "id": 4,
+      "city_name": "Pune"
+    }
+  ]
