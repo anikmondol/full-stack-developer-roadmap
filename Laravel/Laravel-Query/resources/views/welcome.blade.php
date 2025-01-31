@@ -37,7 +37,7 @@
                     <div class="mb-3">
                         <label class="form-label">Password</label>
                         <div class="input-group">
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter your password">
+                            <input  value="{{ old('password') }}" type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter your password">
                             <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">👁️</button>
                         </div>
                         <span class="text-danger">
