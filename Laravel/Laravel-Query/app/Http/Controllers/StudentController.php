@@ -12,18 +12,24 @@ class StudentController extends Controller
     public function addStudent(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:students,email',
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-            ],
-            'age' => 'required|integer|min:18|max:30',
-            'city' => 'required|string'
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|alpha_num|min:8',
+            'age' => 'required|numeric|min:21',
+            'country' => 'required',
         ], [
-            'password.regex' => 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+            'name.required' => 'User Name is required!',
+            'email.required' => 'User Email is required!',
+            'email.email' => 'Please enter a valid email address.',
+            'password.required' => 'Password is required!',
+            'password.alpha_num' => 'Password must contain letters and numbers only.',
+            'password.min' => 'Password must be at least 8 characters long.',
+            'age.required' => 'Age is required!',
+            'age.numeric' => 'Age must be a number.',
+            'age.min' => 'You must be at least 21 years old.',
+            'country.required' => 'Country selection is required.',
         ]);
+
 
         return $request;
     }
