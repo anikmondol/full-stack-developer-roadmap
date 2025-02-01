@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-10 mx-auto">
-                <h2>Add New Students</h2>
+                {{-- <h2>Add New Students</h2>
 
                 <form method="POST">
                     @csrf
@@ -34,7 +34,40 @@
                         </span>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                </form> --}}
+
+                @php
+                    $a1 = [1, 2, 4, 5];
+                    print_r($a1);
+                    echo '<br>';
+                    $a2 = [];
+
+                    foreach ($a1 as $key => $value) {
+                        if ($key == 2) {
+                            array_push($a2, 3);
+                        }
+
+                        array_push($a2, $value);
+                    }
+
+                    print_r($a2);
+
+                    echo '<br>';
+
+                    $b1 = ['a', 'b', 'c', 'd'];
+                    print_r($b1);
+                    echo '<br>';
+                    $b2 = [];
+                    foreach ($b1 as $key => $value) {
+                        if ($key == 1) {
+                            array_push($b2, 'anik');
+                        }
+
+                        array_push($b2, $value);
+                    }
+                    print_r($b2);
+
+                @endphp
 
 
 
