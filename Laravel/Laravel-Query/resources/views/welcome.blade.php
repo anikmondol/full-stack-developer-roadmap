@@ -16,7 +16,7 @@
             <div class="col-10 mx-auto">
                 <h2>Add New Students</h2>
 
-                <form action="{{ route('addStudent') }}" method="POST">
+                <form method="POST">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Name</label>
@@ -33,42 +33,6 @@
                             @error('email') {{ $message }} @enderror
                         </span>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <div class="input-group">
-                            <input  value="{{ old('password') }}" type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter your password">
-                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">👁️</button>
-                        </div>
-                        <span class="text-danger">
-                            @error('password') {{ $message }} @enderror
-                        </span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Age</label>
-                        <input value="{{ old('age') }}" type="number" class="form-control @error('age') is-invalid @enderror" name="age" placeholder="Enter your age">
-                        <span class="text-danger">
-                            @error('age') {{ $message }} @enderror
-                        </span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Select City</label>
-                        <select class="form-select" name="city">
-                            @php
-                                $cities = ["New York", "London", "Tokyo", "Paris", "Berlin", "Sydney", "Dubai", "Toronto", "Mumbai", "Singapore"];
-                                $randomCities = collect($cities)->shuffle()->take(4);
-                            @endphp
-                            @foreach ($randomCities as $city)
-                                <option value="{{ $city }}" {{ old('city') == $city ? 'selected' : '' }}>{{ $city }}</option>
-                            @endforeach
-                        </select>
-                        <span class="text-danger">
-                            @error('city') {{ $message }} @enderror
-                        </span>
-                    </div>
-
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
