@@ -2,35 +2,109 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
-use Illuminate\Database\Query\JoinClause;
+use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-// use App\Rules\Uppercase;
-use Illuminate\Support\Validator;
-use Closure;
+
+use function Laravel\Prompts\select;
 
 class StudentController extends Controller
 {
-
-    public function addStudent(Request $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
+        // $students = Student::with('city')->get();
+        // $students = Student::find(2, ['name', 'age']);
+        // $students = Student::where('email', 'shahid@gmail.com')->get();
+        // $students = Student::count();
+        // $students = Student::min('age');
+        // $students = Student::max('age');
+        // $students = Student::sum('age');
+        //  $students = Student::where('city', '5')->get();
+        // $students = Student::whereCity("5")
+        //             ->whereAge(20)
+        //             ->select('name','email as user_email')
+        //             ->get();
+        // $students = Student::whereCity("5")
+        //             ->whereAge(20)
+        //             ->select('name','email as user_email')
+        //             ->toSql();
+        // $students = Student::whereCity("5")
+        // ->whereAge(20)
+        // ->select('name','email as user_email')
+        // ->toRawSql();
+        // $students = Student::whereCity("5")
+        // ->whereAge(20)
+        // ->select('name','email as user_email')
+        // ->dd();
+        // $students = Student::whereCity("5")
+        // ->whereAge(20)
+        // ->select('name','email as user_email')
+        // ->ddRawSql();
+        // $students = Student::first();
+        // $students = Student::where('age','=',19)->get();
 
-        $validate = $request->validate([
-
-            // 'name' => ['required', new uppercase],
-            'name' => ['required', function (string $attribute, mixed $value, Closure $fail)
-            {
-                if (strtoupper($value) !== $value) {
-                  $fail("The :attribute must be uppercase ");
-                }
-            }],
-            'email' => 'required|email'
-
-        ]);
-
-        return $request;
+        // return $students;
 
 
+        // return view("welcome", compact('students'));
+
+
+        $students = Student::select('students.*', 'cities.city_name')
+        ->join('cities', 'students.city', '=', 'cities.id')
+        ->get();
+
+    return view('welcome', compact('students'));
+    }
+
+
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Student $student)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Student $student)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Student $student)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Student $student)
+    {
+        //
     }
 }
