@@ -55,7 +55,7 @@ class StudentController extends Controller
         ->join('cities', 'students.city', '=', 'cities.id')
         ->get();
 
-    return view('welcome', compact('students'));
+    return view('home', compact('students'));
     }
 
 
@@ -65,7 +65,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('adduser');
     }
 
     /**
@@ -81,7 +81,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('viewuser');
     }
 
     /**
@@ -89,7 +89,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('updateuser');
     }
 
     /**

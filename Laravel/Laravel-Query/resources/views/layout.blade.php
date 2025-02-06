@@ -36,6 +36,21 @@
             background-color: #ffc107;
             color: white;
         }
+        .table td, .table th {
+            vertical-align: middle;
+        }
+        .btn-back {
+            background-color: #d9534f;
+            color: white;
+        }
+        .btn-back:hover {
+            background-color: #242020;
+            color: white;
+        }
+        a{
+            color: white;
+            text-decoration: none
+        }
     </style>
 </head>
 <body>
@@ -43,39 +58,9 @@
         <h1>Eloquent CRUD</h1>
     </div>
     <div class="sub-header text-center">
-        All Users Data
+        @yield('title')
     </div>
-    <div class="container">
-        <button class="btn btn-success btn-add">Add New</button>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>City</th>
-                    <th>View</th>
-                    <th>Delete</th>
-                    <th>Update</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($students as $student)
-                <tr>
-                    <td>{{ $student->loop }}</td>
-                    <td>{{ $student->name }}</td>
-                    <td>{{ $student->email }}</td>
-                    <td>{{ $student->age }}</td>
-                    <td>{{ $student->city_name }}</td>
-                    <td><button class="btn btn-sm btn-info">View</button></td>
-                    <td><button class="btn btn-sm btn-danger">Delete</button></td>
-                    <td><button class="btn btn-secondary">Update</button></td>
-                </tr>
-                @endforeach
+    @yield('content')
 
-            </tbody>
-        </table>
-    </div>
 </body>
 </html>
