@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -52,10 +53,10 @@ class StudentController extends Controller
 
 
         $students = Student::select('students.*', 'cities.city_name')
-        ->join('cities', 'students.city', '=', 'cities.id')
-        ->get();
+            ->join('cities', 'students.city', '=', 'cities.id')
+            ->get();
 
-    return view('home', compact('students'));
+        return view('home', compact('students'));
     }
 
 
@@ -73,32 +74,75 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'userName' => 'required|string|max:255',
+            'userEmail' => 'required|email',
+            'userAge' => 'required|integer|min:1',
+            'userCity' => 'required',
+        ]);
+
+        Student::create([
+            'name' => $request->userName,
+            'email' => $request->userEmail,
+            'age' => $request->userAge,
+            'city' => $request->userCity, // Save cities as JSON (if needed)
+        ]);
+
+        return redirect()->back()->with('success', 'User saved successfully!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        return view('viewuser');
+        $student = Student::findOrFail($id);
+        $city = City::findOrFail($student->city);
+        return view('viewuser', ['student' => $student, 'city' => $city]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit(Student $student, $id)
     {
-        return view('updateuser');
+        $student = Student::findOrFail($id);
+        $city = City::findOrFail($student->city);
+        return view('updateuser', ['student' => $student, 'city' => $city]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
-        //
+        // Find the student by ID
+        $student = Student::findOrFail($id);
+
+        // Validate the request data
+        $request->validate([
+            'userName' => 'required|string|max:255',
+            'userEmail' => 'required|email|unique:students,email,' . $student->id, // Avoid duplicates for the current student
+            'userAge' => 'required|integer|min:1',
+            'userCity' => 'required',
+        ]);
+
+        // Update the student record
+        $student->update([
+            'name' => $request->userName,
+            'email' => $request->userEmail,
+            'age' => $request->userAge,
+            'city' => $request->userCity,
+        ]);
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'User updated successfully!');
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.

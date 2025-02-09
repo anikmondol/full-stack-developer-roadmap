@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="container">
-    <button class="btn btn-success btn-add"><a href="{{ route("users.create")}}">Add New</a></button>
+    <button class="btn btn-success btn-add btn-sm"><a href="{{ route("users.create")}}">Add New</a></button>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -24,14 +24,14 @@
         <tbody>
             @foreach ($students as $student)
             <tr>
-                <td>{{ $student->loop }}</td>
+                <td>{{ $student->id }}</td>
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->email }}</td>
                 <td>{{ $student->age }}</td>
                 <td>{{ $student->city_name }}</td>
                 <td><button class="btn btn-sm btn-info"><a href="{{ route('users.show', $student->id) }}">View</a></button></td>
                 <td><button class="btn btn-sm btn-danger">Delete</button></td>
-                <td><button class="btn btn-secondary"><a href="{{ route('users.edit', $student->id) }}">Update</a></button></td>
+                <td><button class="btn btn-secondary btn-sm"><a href="{{ route('users.edit', $student->id) }}">Update</a></button></td>
             </tr>
             @endforeach
 
