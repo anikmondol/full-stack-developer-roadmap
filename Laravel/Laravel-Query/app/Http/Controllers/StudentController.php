@@ -54,7 +54,7 @@ class StudentController extends Controller
 
         $students = Student::select('students.*', 'cities.city_name')
             ->join('cities', 'students.city', '=', 'cities.id')
-            ->get();
+            ->paginate(7);
 
         return view('home', compact('students'));
     }
@@ -149,6 +149,11 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        // Delete the student record
+        $student->delete();
+
+        // Redirect back with a success message
+        return redirect()->route('users.index')->with('success', 'Student deleted successfully.');
     }
+
 }

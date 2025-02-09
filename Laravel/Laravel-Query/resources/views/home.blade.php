@@ -7,6 +7,11 @@
 
 @section('content')
 <div class="container">
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <button class="btn btn-success btn-add btn-sm"><a href="{{ route("users.create")}}">Add New</a></button>
     <table class="table table-bordered">
         <thead>
@@ -30,13 +35,23 @@
                 <td>{{ $student->age }}</td>
                 <td>{{ $student->city_name }}</td>
                 <td><button class="btn btn-sm btn-info"><a href="{{ route('users.show', $student->id) }}">View</a></button></td>
-                <td><button class="btn btn-sm btn-danger">Delete</button></td>
+                <td>
+                    <form action="{{ route('users.destroy', $student->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this student?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+
                 <td><button class="btn btn-secondary btn-sm"><a href="{{ route('users.edit', $student->id) }}">Update</a></button></td>
             </tr>
             @endforeach
 
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {{ $students->links() }}
+    </div>
 </div>
 
 @endsection

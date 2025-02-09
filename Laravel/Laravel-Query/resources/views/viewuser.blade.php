@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <th scope="row">City :</th>
-                    <td>{{ $city->city ?? 'Not Assigned' }}</td>
+                    <td>{{ $city->city_name }}</td>
                 </tr>
             </tbody>
 
