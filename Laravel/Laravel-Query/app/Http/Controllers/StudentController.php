@@ -57,6 +57,50 @@ class StudentController extends Controller
             ->paginate(7);
 
         return view('home', compact('students'));
+
+
+        // $students = Student::where('city',5)->get();
+
+        // foreach ($students as $key => $value) {
+        //    echo "$value->name | $value->email | $value->age <br>";
+        // }
+
+
+        // $students = Student::findOrFail(88);
+
+        // Student::chunk(5, function($students){
+        //     foreach ($students as $key => $value) {
+        //         echo "$value->name | $value->email | $value->age <br>";
+        //     }
+        //     echo "<br>";
+        // });
+
+
+        // foreach (Student::lazy() as $key => $value) {
+        //     echo "$value->name | $value->email | $value->age <br>";
+        // }
+
+        // foreach (Student::cursor() as $key => $value) {
+        //     echo "$value->name | $value->email | $value->age <br>";
+        // }
+
+
+
+        // foreach (Student::where('city', 5)->lazy() as $student) {
+        //     $student->update(['age' => 50]);
+        // }
+
+        // Student::where('city', 5)->chunkById(3, function ($students) {
+        //     foreach ($students as $student) {
+        //         $student->update(['age' => 100]);
+        //     }
+        // });
+
+        // Student::where('city',5)->lazyById(3)
+        //         ->each->update(['age' => 40]);
+
+
+
     }
 
 
@@ -72,9 +116,8 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
 
+    public function store(Request $request) {
         $request->validate([
             'userName' => 'required|string|max:255',
             'userEmail' => 'required|email',
@@ -86,11 +129,12 @@ class StudentController extends Controller
             'name' => $request->userName,
             'email' => $request->userEmail,
             'age' => $request->userAge,
-            'city' => $request->userCity, // Save cities as JSON (if needed)
+            'city' => $request->userCity,
         ]);
 
         return redirect()->back()->with('success', 'User saved successfully!');
     }
+
 
     /**
      * Display the specified resource.
@@ -155,5 +199,4 @@ class StudentController extends Controller
         // Redirect back with a success message
         return redirect()->route('users.index')->with('success', 'Student deleted successfully.');
     }
-
 }

@@ -8,9 +8,11 @@ class Student extends Model
 {
     // public $timestamp = false;
 
+    // protected $table = 'my_table';
+
     protected $fillable = ['name', 'email', 'age', 'city'];
 
-    
+
 }
 
 
