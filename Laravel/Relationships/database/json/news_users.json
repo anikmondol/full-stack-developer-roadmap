@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Yahoo Baba",
+            "email": "yahoobaba@email.com"
+        },
+        {
+            "id": 2,
+            "name": "Salman Khan",
+            "email": "salman@email.com"
+        },
+        {
+            "id": 3,
+            "name": "Deepika Padukone",
+            "email": "deepika@email.com"
+        },
+        {
+            "id": 4,
+            "name": "Abhishek Bachchan",
+            "email": "abhishek@email.com"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "News Title One",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing ...",
+            "user_id": 1
+        },
+        {
+            "id": 2,
+            "title": "News Title Two",
+            "description": "Maecenas pharetra magna quis elit ullamcorper, si ...",
+            "user_id": 2
+        },
+        {
+            "id": 3,
+            "title": "News Title Three",
+            "description": "Curabitur magna purus, ultricies quis ante et, lob ...",
+            "user_id": 1
+        },
+        {
+            "id": 4,
+            "title": "News Title Four",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing ...",
+            "user_id": 3
+        },
+        {
+            "id": 5,
+            "title": "News Title Five",
+            "description": "Quis elit ullamcorper, sit amet egestas arcu ferm ...",
+            "user_id": 3
+        },
+        {
+            "id": 6,
+            "title": "News Title Six",
+            "description": "Ultricies quis ante et, lobortis sollicitudin lore ...",
+            "user_id": 1
+        },
+        {
+            "id": 7,
+            "title": "News Title Seven",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing ...",
+            "user_id": 3
+        },
+        {
+            "id": 8,
+            "title": "News Title Eight",
+            "description": "Nullam lobortis viverra sapien, et auctor neque ph ...",
+            "user_id": 2
+        }
+    ]
+}
