@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "email": "yahoobabfr@email.com",
+            "phone": "123456789",
+            "address": "#123 YB Road",
+            "city": "Chandigarh",
+            "student_id": 1
+        },
+        {
+            "id": 2,
+            "email": "salman@email.com",
+            "phone": "3344556677",
+            "address": "#345, SK Road",
+            "city": "Mumbai",
+            "student_id": 2
+        },
+        {
+            "id": 3,
+            "email": "akshay@email.com",
+            "phone": "8855662211",
+            "address": "#456, AK Road",
+            "city": "Delhi",
+            "student_id": 3
+        },
+        {
+            "id": 4,
+            "email": "kirti@email.com",
+            "phone": "99887744225",
+            "address": "#678, KS Road",
+            "city": "Delhi",
+            "student_id": 4
+        },
+        {
+            "id": 5,
+            "email": "deepika@email.com",
+            "phone": "7788554411",
+            "address": "#321, DP Road",
+            "city": "Banglore",
+            "student_id": 5
+        }
+    ]
+}
