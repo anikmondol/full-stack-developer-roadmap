@@ -65,7 +65,7 @@ $user = NewsUsers::find(2);
 if ($user) {
     // Create a new post and associate it with the user
     $user->posts()->create([ // Use 'posts()' (plural)
-        'title' => "anik title",
+        'title' => "anik N title",
         'description' => "anik description",
     ]);
 } else {
