@@ -2,45 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Governor;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class GovernorController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
 
-        // $user = Governor::find(4);
+        // $customers = Customer::with("latestOrder")->find(2);
+        // $customers = Customer::with("smallestOrder")->find(2);
+        // $customers = Customer::with("largestOrder")->get();
+        $customers = Customer::with("orders")->with('largestOrder')->get();
 
-        $users = Governor::get();
-
-        foreach ($users as $key => $value) {
-           echo $value->name . "<br>";
-           echo $value->email . "<br>";
-           echo "<hr>";
-        }
-
-
-
-
-        // if ($user) {
-        //     $governors = $user->roles; // Lazy load relationship
-
-        //     // return $governors;
-
-        //     foreach ($governors as $key => $value) {
-        //        echo $value->role_name;
-        //     }
-
-
-        // } else {
-        //     return response()->json(['error' => 'User not found'], 404);
-        // }
-
+        return $customers;
 
 
     }

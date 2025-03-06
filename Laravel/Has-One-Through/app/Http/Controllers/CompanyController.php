@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Governor;
 use Illuminate\Http\Request;
 
-class GovernorController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,36 +12,6 @@ class GovernorController extends Controller
     public function index()
     {
         //
-
-        // $user = Governor::find(4);
-
-        $users = Governor::get();
-
-        foreach ($users as $key => $value) {
-           echo $value->name . "<br>";
-           echo $value->email . "<br>";
-           echo "<hr>";
-        }
-
-
-
-
-        // if ($user) {
-        //     $governors = $user->roles; // Lazy load relationship
-
-        //     // return $governors;
-
-        //     foreach ($governors as $key => $value) {
-        //        echo $value->role_name;
-        //     }
-
-
-        // } else {
-        //     return response()->json(['error' => 'User not found'], 404);
-        // }
-
-
-
     }
 
     /**
