@@ -8,13 +8,13 @@ class User extends Model
 {
     //
 
-
-    public function company(){
-        return $this->hasOne(Company::class);
+    public function  country(){
+        return $this->belongsTo(Countrie::class);
     }
 
-    public function phoneNumber(){
-       return $this->hasOneThrough(Phone_number::class,Company::class);
+    public function posts(){
+        return $this->hasMany(Post::class);
     }
+
 
 }

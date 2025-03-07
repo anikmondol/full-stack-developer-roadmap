@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Countrie;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class CountrieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class UserController extends Controller
     {
         //
 
-        $users = User::with('country')->with('posts')->get();
+        $countries = Countrie::with('users')->with('posts')->find(1);
 
-        return $users;
-
+        return $countries;
     }
 
     /**
