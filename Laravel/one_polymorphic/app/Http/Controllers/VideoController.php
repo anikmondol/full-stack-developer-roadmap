@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,36 @@ class PostController extends Controller
     {
         //
 
-        // $post = Post::with('image')->find(1);
+        // $video = Video::with('comments')->find(1);
 
-        //         $post = Post::find(1);
+    //    return $video;
 
-        // return $post->image;
 
-        $post = Post::with('comments')->find(1);
+    // echo "<h1> $video->title</h1>";
+    // echo "<h4> $video->url</h4>";
 
-        return $post;
+
+    // foreach ($video->comments as $key => $comment) {
+    //     echo $comment->detail;
+    //     echo "<hr>";
+    // }
+
+    // $video = Video::with('latestComment')->find(1);
+
+        // $video = Video::with('oldestComment')->find(1);
+
+    // $video = Video::find(1);
+
+    // return $video->BestComment;
+
+
+        // $video = Video::with('BestComment')->find(2);
+
+        $video = Video::find(1);
+
+
+        return $video->BestComment;
+
 
 
     }
@@ -35,29 +55,11 @@ class PostController extends Controller
     {
         //
 
-        // $post = Post::create([
+        $video = Video::find(2);
 
-        //     'title' => 'news title one',
-        //     'description' => 'fist post description'
-
-        // ]);
-
-        // $post->image()->create([
-        //     'url' => 'images/post/post-one.jpg'
-        // ]);
-
-
-          $post = Post::create([
-            'title' => 'news title one',
-            'description' => 'fist post description'
-
+        $video->comments()->create([
+            'detail' => "good video"
         ]);
-
-
-        $post->comments()->create([
-            'detail' => 'this is post comment'
-        ]);
-
 
     }
 

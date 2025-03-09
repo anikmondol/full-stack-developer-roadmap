@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\Video;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +12,6 @@ class PostController extends Controller
     public function index()
     {
         //
-
-        // $post = Post::with('image')->find(1);
-
-        //         $post = Post::find(1);
-
-        // return $post->image;
-
-        $post = Post::with('comments')->find(1);
-
-        return $post;
-
-
     }
 
     /**
@@ -34,31 +20,6 @@ class PostController extends Controller
     public function create()
     {
         //
-
-        // $post = Post::create([
-
-        //     'title' => 'news title one',
-        //     'description' => 'fist post description'
-
-        // ]);
-
-        // $post->image()->create([
-        //     'url' => 'images/post/post-one.jpg'
-        // ]);
-
-
-          $post = Post::create([
-            'title' => 'news title one',
-            'description' => 'fist post description'
-
-        ]);
-
-
-        $post->comments()->create([
-            'detail' => 'this is post comment'
-        ]);
-
-
     }
 
     /**
