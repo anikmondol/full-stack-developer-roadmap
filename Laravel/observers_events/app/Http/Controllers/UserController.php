@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Scopes\UserScope;
 
 class UserController extends Controller
 {
@@ -13,24 +14,44 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::with('post')->find(2);
+        // $users = User::withoutGlobalScopes()->get();
 
-        return $user;
+
+        // $users = User::withoutGlobalScopes(UserScope::class)->get();
+
+        $users = User::withoutGlobalScopes([UserScope::class])->get();
+
+
+        // $users = User::with('post')
+        //     ->where('status', 1)
+        //     ->get();
+
+        // $users = User::with('post')
+        //     ->active()
+        //     ->get();
+
+        // $users = User::with('post')
+        //     ->whereCity('Delhi')
+        //     ->where('status', 1)
+        //     ->get();
+
+        // $users = User::with('post')
+        // ->whereCity('Delhi')
+        // ->active()
+        // ->get();
+
+        // $users = User::city(['Delhi'])
+        // ->sort()
+        // ->get();
+
+
+        return $users;
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-
-        $user = User::find(2)->delete();
-
-        // Post::where('user_id', 1)->delete();
-
-
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.

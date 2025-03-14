@@ -14,12 +14,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
 
+        // $posts = Post::with('user')->get();
 
-        $post = Post::find(2);
+        $posts = Post::withWhereHas('user', function($query){
+            $query->active();
+        })
+        ->active()
+        ->get();
 
-        return $post;
+        return $posts;
 
     }
 
@@ -28,19 +32,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
 
-        $post_title = "This is another testing";
-        // $post_slug = Str::slug($post_title,'-');
 
-// echo $post_slug;
-
-        Post::create([
-            'title' => $post_title,
-            // 'slug' => $post_slug,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-            'user_id' => 2,
-        ]);
 
     }
 
