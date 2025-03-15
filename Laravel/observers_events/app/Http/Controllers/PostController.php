@@ -17,13 +17,13 @@ class PostController extends Controller
 
         // $posts = Post::with('user')->get();
 
-        $posts = Post::withWhereHas('user', function($query){
-            $query->active();
-        })
-        ->active()
-        ->get();
+        // $posts = Post::withWhereHas('user', function($query){
+        //     $query->active();
+        // })
+        // ->active()
+        // ->get();
 
-        return $posts;
+        // return $posts;
 
     }
 

@@ -19,7 +19,7 @@ class UserController extends Controller
 
         // $users = User::withoutGlobalScopes(UserScope::class)->get();
 
-        $users = User::withoutGlobalScopes([UserScope::class])->get();
+        // $users = User::withoutGlobalScopes([UserScope::class])->get();
 
 
         // $users = User::with('post')
@@ -43,6 +43,51 @@ class UserController extends Controller
         // $users = User::city(['Delhi'])
         // ->sort()
         // ->get();
+
+
+        // $users = User::select('name','city')
+        //         ->where('city', 'Delhi')
+        //         ->get();
+
+        // $users = User::where('city', 'Delhi')
+        //         ->get(['name','city','email']);
+
+
+        // $users = User::all('name','city','email')->toArray();
+
+        // $users = User::all('name','city','email');
+
+
+        // $users = User::where('city', 'Delhi')->pluck('name','city');
+
+        // $users = User::find(1);
+        // $users = User::find(1,['name']);
+
+        // $users = User::findorfail(1,['name']);
+
+        // $users = User::find(1)->email;
+
+        // $users = User::where('city','Delhi')->first()->email;
+
+        // $users = User::where('city','Delhi')->value('email');
+
+
+        //  $users = Post::with('user')->get();
+
+        // $users = Post::with('user:name as User name,email as User Email,id')->get(['title','description','user_id']);
+
+        // $users = Post::with(['user' => function($query){
+        //     $query->select('name','email','id');
+        // }])->get(['title','description','user_id']);
+
+        // $users = Post::select('title','description','user_id')->with(['user' => function($query){
+        //     $query->select('name','email','id');
+        // }])->get();
+
+        $users = Post::select('title','description','user_id')->withWhereHas('user', function($query){
+            $query->select('name','email','id')->where('city','Delhi');
+        })->get();
+
 
 
         return $users;

@@ -10,20 +10,26 @@ class User extends Model
 {
 
 
-    public function post(){
+
+    public function post()
+    {
         return $this->hasMany(Post::class);
     }
 
-    protected static function booted(): void
-    {
+    // public function post(){
+    //     return $this->hasMany(Post::class);
+    // }
 
-        // static::addGlobalScope('userdetail', function(Builder $builder){
-        //     $builder->where('status', 1);
-        // });
+    // protected static function booted(): void
+    // {
 
-        static::addGlobalScope(new UserScope);
+    //     static::addGlobalScope('userdetail', function(Builder $builder){
+    //         $builder->where('status', 1);
+    //     });
 
-    }
+    //     static::addGlobalScope(new UserScope);
+
+    // }
 
 
     // public function scopeActive($query){
@@ -34,12 +40,12 @@ class User extends Model
     //     return $query->where('city', $cityName);
     // }
 
-    public function scopeCity($query, $cityName){
-        return $query->whereIn('city', $cityName);
-    }
+    // public function scopeCity($query, $cityName){
+    //     return $query->whereIn('city', $cityName);
+    // }
 
-    public function scopeSort($query){
-        return $query->OrderBy('name', 'DESC');
-    }
+    // public function scopeSort($query){
+    //     return $query->OrderBy('name', 'DESC');
+    // }
 
 }
