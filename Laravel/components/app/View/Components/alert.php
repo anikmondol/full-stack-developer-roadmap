@@ -1,48 +1,40 @@
 <?php
-
 namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 
-class alert extends Component
-
+class Alert extends Component
 {
+    public string $type;
+    public bool $dismissible;
 
-    public $type;
-    public $message;
-    public $dismissible;
-    protected $types = [
-        'info',
-        'danger',
-        'success'
+    protected array $types = [
+        "info",
+        "danger",
+        "success"
     ];
-
 
     /**
      * Create a new component instance.
      */
-    public function __construct(string $type, string $message, $dismissible = false)
+    public function __construct(string $type = "info", bool $dismissible = false)
     {
-
         $this->type = $type;
-        $this->message = $message;
         $this->dismissible = $dismissible;
-
     }
 
-
-    public function validType(){
-        return in_array($this->type, $this->types) ?  $this->type : 'info';
+    public function validType(): string
+    {
+        return in_array($this->type, $this->types) ? $this->type : "info";
     }
 
-    // public function __construct(public string $type = 'info',public string $message = 'test message')
-    // {
-
-
-
-    // }
+    public function link($text, $target = "#"): HtmlString
+    {
+        return new HtmlString('<a href="' . e($target) . '" class="alert-link">' . e($text) . '</a>');
+    }
 
     /**
      * Get the view / contents that represent the component.
@@ -52,3 +44,5 @@ class alert extends Component
         return view('components.alert');
     }
 }
+
+

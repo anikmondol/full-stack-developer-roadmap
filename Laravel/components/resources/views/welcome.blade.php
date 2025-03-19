@@ -11,14 +11,28 @@
 
 <body>
 
+
+
+    <x-alert type="danger">
+        <x-slot:title class="font-bold">
+            Heading Here {{ $component->link("Just Testing",'https://getbootstrap.com/docs/5.3/components/alerts/#examples') }}
+        </x-slot>
+        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.  </p>
+    </x-alert>
+
+    {{-- <x-card/> --}}
+
+
     @php
-        $message = "this is just testing";
+        $componentName = 'alert';
     @endphp
 
-    {{-- <x-alert type="success" message="{{ $message }}" /> --}}
-    <x-alert type="success" id="fistAlert" class="m-4" role="flash" :$message />
-    <x-alert type="danger" dismissible message="This is success message alert" />
-    <x-alert type="info" message="This is success message alert" />
+    <x-dynamic-component :component="$componentName" class="m-4" />
+
+    <x-form action="/somepage" method='PUT' id="firstform" class="myform">
+        <input type="text" name="name">
+        <button type="submit">save</button>
+    </x-form>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
