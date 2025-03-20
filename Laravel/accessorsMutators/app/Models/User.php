@@ -59,14 +59,14 @@ class User extends Model
 
 
 
-    public function getSalaryAttribute($value)
-    {
-        // return Number::currency($value, in:'BDT');
-        // return Number::format($value);
+    // public function getSalaryAttribute($value)
+    // {
+    //     return Number::currency($value, in:'BDT');
+    //     return Number::format($value);
 
-        // return Number::spell($value);
+    //     return Number::spell($value);
 
-        return Number::currency($value, 'USD');
+    //     return Number::currency($value, 'USD');
 
-    }
+    // }
 }

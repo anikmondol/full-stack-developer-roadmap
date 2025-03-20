@@ -12,8 +12,9 @@
 <body>
     <div class="container mt-5">
         <!-- Header -->
+        <h2 class="text-center bg-info p-2" style="border-radius: 5px">Eloquent CRUD</h2>
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1>Eloquent CRUD</h1>
+            <h4 >All User Data</h4>
             <a class="btn btn-primary" href="{{ route('user.create') }}">Add New</a>
         </div>
 
@@ -51,14 +52,16 @@
                         <td>{{ $user->dob }}</td>
                         <td>{{ $user->salary }}</td>
                         <td>
-                            <button class="btn btn-sm btn-info">View</button>
-                            <button class="btn btn-sm btn-warning">Update</button>
+                           <div class="d-flex justify-content-between">
+                            <a href="{{ route('user.show', $user->id) }}" class="btn btn-sm btn-info">View</a>
+                            <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning">Update</a>
                             <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" value="{{ $user->id }}">
                                 <button class="btn btn-sm btn-danger">Delete</button>
                             </form>
+                           </div>
 
                         </td>
                     </tr>
@@ -67,8 +70,10 @@
 
 
 
+
             </tbody>
         </table>
+        {{ $users->links() }}
     </div>
 
     <!-- Bootstrap JS -->
