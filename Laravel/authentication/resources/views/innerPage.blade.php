@@ -15,14 +15,14 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title text-center">laravel authentication</h3>
+                        <h3 class="card-title text-center">Welcome to InnerPage, {{ Auth::user()->name }}</h3>
                     </div>
                     <div class="card-body text-center">
-                        <a href="{{ route('register') }}"> <button type="submit"
-                                class="btn btn-primary">Register</button></a>
+                        <a href="{{ route('dashboardPage') }}"> <button type="submit"
+                                class="btn btn-primary">dashboardPage</button></a>
                         <span>|</span>
-                        <a href="{{ route('login') }}">
-                            <button type="button" class="btn btn-secondary">Login</button>
+                        <a href="{{ route('logout') }}">
+                            <button type="button" class="btn btn-secondary">logout</button>
                         </a>
                     </div>
                 </div>

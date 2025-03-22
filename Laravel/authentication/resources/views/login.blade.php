@@ -15,50 +15,35 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Register</h3>
+                        <h3 class="card-title">Login</h3>
+                    </div>
+                    <div class="col-md-10 mx-auto mt-2">
+                        @if (session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
+
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('storeData') }}" method="POST">
+                        <form action="{{ route('loginMatch') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Name">
-                                @error('name')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Email address">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email address">
                                 @error('email')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                                 @error('password')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-
-                            <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm-password"
-                                    name="confirm_password" placeholder="Confirm Password">
-                                @error('confirm_password')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                             <a href="/"><button type="button" class="btn btn-secondary">Back</button></a>
                         </form>
+
                     </div>
                 </div>
             </div>
