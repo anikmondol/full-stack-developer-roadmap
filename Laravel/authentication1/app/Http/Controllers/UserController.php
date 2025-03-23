@@ -14,25 +14,26 @@ class UserController extends Controller
 
     public function storeData(Request $request)
     {
-
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required',
-            'age' => 'required',
-            'role' => 'required|string',  
-            'confirm_password' => 'required|same:password'
+            'age' => 'required|integer|min:0|max:120',
+            'role' => 'required',
+            'password' => 'required|min:8',
+            'confirm_password' => 'required|same:password',
+
         ]);
 
-        // Store user
+
+        // dd($request->role);
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'age' => $request->age,
-            'role' => $request->role ?? 'user',  // Default to 'user' if role is not provided
             'password' => Hash::make($request->password)
         ]);
-
 
         return redirect()->route('login')->with('success', 'User registered successfully!');
     }
@@ -53,26 +54,28 @@ class UserController extends Controller
 
     public function dashboardPage()
     {
-        if (Auth::check()) {
-            return view('dashboardPage');
-        } else {
-            return redirect()->route('login');
-        }
+        // if (Auth::check()) {
+        //     return view('dashboardPage');
+        // } else {
+        //     return redirect()->route('login');
+        // }
+
+        return view('dashboardPage');
     }
 
+    public function innerPage()
+    {
+        // if (Auth::check()) {
+        //     return view('innerPage');
+        // } else {
+        //     return redirect()->route('login');
+        // }
+        return view('innerPage');
+    }
 
     public function logout()
     {
         Auth::logout();
         return view('login');
-    }
-
-    public function innerPage()
-    {
-        if (Auth::check()) {
-            return view('innerPage');
-        } else {
-            return redirect()->route('login');
-        }
     }
 }

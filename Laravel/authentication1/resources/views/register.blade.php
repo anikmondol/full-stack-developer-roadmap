@@ -30,28 +30,28 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="age" class="form-label">Age</label>
-                                <input type="number" class="form-control" id="age" name="age"
-                                    placeholder="Age" required>
-                                @error('age')
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Email address">
+                                @error('email')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
-                                <input type="text" class="form-control" id="role" name="role"
-                                    placeholder="Role">
+                                <input type="text" class="form-control" id="role" name="role" placeholder="Role"
+                                    value="{{ old('role') }}">
                                 @error('role')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Email address">
-                                @error('email')
+                                <label for="age" class="form-label">Age</label>
+                                <input type="number" class="form-control" id="age" name="age" placeholder="Age"
+                                    value="{{ old('age') }}" min="0" max="120">
+                                @error('age')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
