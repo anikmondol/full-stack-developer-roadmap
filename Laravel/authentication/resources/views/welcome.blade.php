@@ -22,7 +22,7 @@
                                 class="btn btn-primary">Register</button></a>
                         <span>|</span>
                         <a href="{{ route('login') }}">
-                            <button type="button" class="btn btn-secondary">Login</button>
+                            <button type="button" class="btn btn-secondary">Logddin</button>
                         </a>
                     </div>
                 </div>
