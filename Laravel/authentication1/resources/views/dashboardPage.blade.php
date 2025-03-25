@@ -18,11 +18,35 @@
                         <h3 class="card-title text-center">Welcome, {{ Auth::user()->name }}</h3>
                     </div>
                     <div class="card-body text-center">
+
+                        {{-- @if (Gate::allows('isAdmin'))
                         <a href="{{ route('innerPage') }}"> <button type="submit"
-                                class="btn btn-primary">InnerPage</button></a>
+                            class="btn btn-primary">Admin Panel</button></a>
+                        @else
+                            <span>none</span>
+                        @endif --}}
+
+                            @can('isAdmin')
+                            <a href="{{ route('innerPage') }}"> <button type="submit"
+                                class="btn btn-primary">Admin Panel</button></a>
+                            </a>
+                            @else
+                            <a href="#"> <button type="submit"
+                                class="btn btn-primary">Other Link</button></a>
+                            @endcan
+
+
                         <span>|</span>
                         <a href="{{ route('logout') }}">
-                            <button type="button" class="btn btn-secondary">logout</button>
+                            <button type="button" class="btn btn-danger">logout</button>
+                        </a>
+                        <span>|</span>
+                        <a href="{{ route('profile', Auth::id()) }}">
+                            <button type="button" class="btn btn-warning">Profile</button>
+                        </a>
+                        <span>|</span>
+                        <a href="{{ route('post', Auth::id()) }}">
+                            <button type="button" class="btn btn-dark">Post</button>
                         </a>
                     </div>
                 </div>

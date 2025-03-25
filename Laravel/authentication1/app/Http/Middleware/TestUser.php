@@ -16,7 +16,7 @@ class TestUser
     public function handle(Request $request, Closure $next): Response
     {
 
-        echo "<h2 class='text-warning text-center'>TestUser Middleware</h2>";
+        // echo "<h2 class='text-warning text-center'>TestUser Middleware</h2>";
 
 
         return $next($request);
