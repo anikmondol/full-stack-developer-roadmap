@@ -27,7 +27,7 @@
 <body>
     <div class="container">
         <div class="contact-form">
-            <h2 class="text-center">Contact Form</h2>
+            <h2 class="text-center">Contact</h2>
             <form action="{{ route('contact') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
