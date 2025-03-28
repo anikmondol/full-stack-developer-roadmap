@@ -8,3 +8,9 @@ Route::get('/', function () {
 });
 
 Route::get('send-email',[EmailController::class,'sendEmail']);
+
+Route::get('contact',[EmailController::class,'contactForm']);
+
+Route::get('contact',[EmailController::class,'contactForm']);
+
+Route::post('contact-store',[EmailController::class,'sendContactFormEmail'])->name('contact');

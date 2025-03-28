@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -13,20 +14,25 @@ class welcomeemail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $mailmessage;
-    public $subject;
+    // public $request;
+    // public $fileName;
     // public $details;
-    private $details;
+    // private $details;
+
+
+    public $request;
+    public $fileName;
+
 
     /**
      * Create a new message instance.
      */
-    public function __construct($mailmessage, $subject, $details)
+    public function __construct($request, $fileName)
     {
         //
-        $this->mailmessage = $mailmessage;
-        $this->subject = $subject;
-        $this->details = $details;
+        $this->request = $request;
+        $this->fileName = $fileName;
+        // $this->details = $details;
     }
 
     /**
@@ -35,7 +41,7 @@ class welcomeemail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: $this->subject,
+            subject: "Contact Form",
         );
     }
 
@@ -46,11 +52,11 @@ class welcomeemail extends Mailable
     {
         return new Content(
             view: 'mail.welcome-mail',
-            with:[
-                'name' => $this->details['name'],
-                'product' => $this->details['product'],
-                'price' => $this->details['price'],
-            ]
+            // with:[
+            //     'name' => $this->details['name'],
+            //     'product' => $this->details['product'],
+            //     'price' => $this->details['price'],
+            // ]
         );
     }
 
@@ -61,6 +67,15 @@ class welcomeemail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        $attachment = [];
+
+        if ($this->fileName) {
+           $attachment = [
+            Attachment::fromPath(public_path('/uploads/'.$this->fileName))
+           ];
+        }
+
+        return  $attachment;
+
     }
 }
